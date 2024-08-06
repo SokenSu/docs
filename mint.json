@@ -39,8 +39,9 @@
     },
     {
       "name": "API Reference",
-      "icon": "book-open-cover",
-      "url": "api-reference"
+      "openapi": "/api-reference/openapi.json",
+      "url": "api-reference",
+      "icon": "square-terminal"
     }
   ],
   "navigation": [
