@@ -68,13 +68,13 @@
       "group": "v1/Station Management",
       "pages": [
         "api-reference/v1station-management/create-station",
-        "api-reference\\v1station-management\\get-station-info",
-        "api-reference\\v1station-management\\get-station-price-detail",
-        "api-reference\\v1station-management\\update-station-info",
-        "api-reference\\v1station-management\\station-bind-price",
-        "api-reference\\v1station-management\\station-unbind-price",
-        "api-reference\\v1station-management\\delete-station",
-        "api-reference\\v1station-management\\list-station-info"
+        "api-reference/v1station-management/get-station-info",
+        "api-reference/v1station-management/get-station-price-detail",
+        "api-reference/v1station-management/update-station-info",
+        "api-reference/v1station-management/station-bind-price",
+        "api-reference/v1station-management/station-unbind-price",
+        "api-reference/v1station-management/delete-station",
+        "api-reference/v1station-management/list-station-info"
       ]
     },
     {
