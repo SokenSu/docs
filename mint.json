@@ -39,7 +39,6 @@
     },
     {
       "name": "API Reference",
-      "openapi": "https://enjoyelec.mintlify.app/api-reference/openapi.json",
       "url": "api-reference",
       "icon": "square-terminal"
     }
