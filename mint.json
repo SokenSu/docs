@@ -5,7 +5,7 @@
     "dark": "/logo/enjoyelec.png",
     "light": "/logo/enjoyelec.png"
   },
-  "favicon": "/enjoyelec-e.png",
+  "favicon": "/logo/enjoyelec-e.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -17,13 +17,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Home",
+      "url": "https://www.enjoyelec.net/"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Get Started",
+    "url": "https://enjoyelec.mintlify.app/"
   },
   "tabs": [
     {
