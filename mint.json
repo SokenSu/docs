@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference/openapi.json"
+      "url": "api-reference"
     }
   ],
   "anchors": [
@@ -40,7 +40,7 @@
     {
       "name": "API Reference",
       "icon": "book-open-cover",
-      "url": "api-reference/openapi.json"
+      "url": "api-reference"
     }
   ],
   "navigation": [
