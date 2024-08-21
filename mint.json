@@ -99,14 +99,20 @@
         "api-reference/v1strategy-management/update-station-strategy-policy",
         "api-reference/v1strategy-management/refresh-station-strategy-plan",
         "api-reference/v1strategy-management/get-station-strategy-policy",
-        "api-reference/v1strategy-management/get-station-current-strategy-info",
+        "api-reference/v1strategy-management/get-station-current-strategy-plan",
         "api-reference/v1strategy-management/get-station-strategy-by-plan-id",
-        "api-reference/v1strategy-management/list-station-plan"
+        "api-reference/v1strategy-management/list-station-strategy-plan"
       ]
     },{
       "group": "v1/Webhook Management",
       "pages": [
-        "api-reference/v1webhook-management/webhook"
+        "api-reference/v1webhook-management/list-webhook",
+        "api-reference/v1webhook-management/detail-webhook",
+        "api-reference/v1webhook-management/create-webhook",
+        "api-reference/v1webhook-management/update-webhook",
+        "api-reference/v1webhook-management/delete-webhook",
+        "api-reference/v1webhook-management/test-webhook"
+
       ]
     }
   ],
