@@ -11,11 +11,15 @@ description: ''
 - Query strategy plan history based on '/v1/strategy/plan/list' and query strategy plan details based on '/v1/strategy/station/{stationId}/plan/{planId}'
 - Strategy status diagram
 
-![openapi-strategy-status.png](https://api.apifox.cn/api/v1/projects/4401459/resources/461254/image-preview)
+<Frame>
+  <img src="/images/strategy.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
 
 - Case1:Update strategy policy for the first time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING；After generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，update strategy policy then create a new plan,the old plan status updates PLAN:END:INVALID，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING; After generation plan results, the current status is PLAN: EXECUTING: PROGRESSING.
 - Case2:Update strategy policy for the first time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING.If no plan result is generated,the current status is CONSIDERING and update strategy policy at this time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，after generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，until the end of the plan，the status updates PLAN:END:FINISHED.
 - Case3:The current status is PLAN:END:*，Update strategy policy or refresh strategy policy，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING，after generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，until the end of the plan，the status updates PLAN:END:FINISHED.
 - Strategy generation use-case diagram
 
-![openapi-strategy-TimeWindow.png](https://api.apifox.cn/api/v1/projects/4401459/resources/461255/image-preview)
+<Frame>
+  <img src="/images/strategy-timewindow.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
