@@ -54,64 +54,64 @@
       ]
     },
     {
-      "group": "v1/Authentication",
+      "group": "Api/Authentication",
       "pages": [
-        "api-reference/v1authentication/get-token"
+        "api-reference/apiauthentication/get-token"
       ]
     },
     {
-      "group": "v1/Station Management",
+      "group": "Api/Station Management",
       "pages": [
-        "api-reference/v1station-management/create-station",
-        "api-reference/v1station-management/get-station-info",
-        "api-reference/v1station-management/get-station-price-detail",
-        "api-reference/v1station-management/update-station-info",
-        "api-reference/v1station-management/station-bind-price",
-        "api-reference/v1station-management/station-unbind-price",
-        "api-reference/v1station-management/delete-station",
-        "api-reference/v1station-management/list-station-info"
+        "api-reference/apistation-management/create-station",
+        "api-reference/apistation-management/get-station-info",
+        "api-reference/apistation-management/get-station-price-detail",
+        "api-reference/apistation-management/update-station-info",
+        "api-reference/apistation-management/station-bind-price",
+        "api-reference/apistation-management/station-unbind-price",
+        "api-reference/apistation-management/delete-station",
+        "api-reference/apistation-management/list-station-info"
       ]
     },
     {
-      "group": "v1/Device Management",
+      "group": "Api/Device Management",
       "pages": [
-        "api-reference/v1device-management/list-device",
-        "api-reference/v1device-management/get-device-info",
-        "api-reference/v1device-management/create-device",
-        "api-reference/v1device-management/update-device",
-        "api-reference/v1device-management/get-device-realtime-data",
-        "api-reference/v1device-management/get-device-history-data",
-        "api-reference/v1device-management/upload-device-data",
-        "api-reference/v1device-management/unbind-device",
-        "api-reference/v1device-management/device-bind-station"
+        "api-reference/apidevice-management/list-device",
+        "api-reference/apidevice-management/get-device-info",
+        "api-reference/apidevice-management/create-device",
+        "api-reference/apidevice-management/update-device",
+        "api-reference/apidevice-management/get-device-realtime-data",
+        "api-reference/apidevice-management/get-device-history-data",
+        "api-reference/apidevice-management/upload-device-data",
+        "api-reference/apidevice-management/unbind-device",
+        "api-reference/apidevice-management/device-bind-station"
       ]
     },
     {
-      "group": "v1/Price Management",
+      "group": "Api/Price Management",
       "pages": [
-        "api-reference/v1price-management/get-country-price-list",
-        "api-reference/v1price-management/get-price-detail"
+        "api-reference/apiprice-management/get-country-price-list",
+        "api-reference/apiprice-management/get-price-detail"
       ]
     },
     {
-      "group": "v1/Strategy Management",
+      "group": "Api/Strategy Management",
       "pages": [
-        "api-reference/v1strategy-management/update-station-strategy-policy",
-        "api-reference/v1strategy-management/refresh-station-strategy-plan",
-        "api-reference/v1strategy-management/get-station-strategy-policy",
-        "api-reference/v1strategy-management/get-station-current-strategy-plan",
-        "api-reference/v1strategy-management/get-station-strategy-by-plan-id",
-        "api-reference/v1strategy-management/list-station-strategy-plan"
+        "api-reference/apistrategy-management/update-station-strategy-policy",
+        "api-reference/apistrategy-management/refresh-station-strategy-plan",
+        "api-reference/apistrategy-management/get-station-strategy-policy",
+        "api-reference/apistrategy-management/get-station-current-strategy-plan",
+        "api-reference/apistrategy-management/get-station-strategy-by-plan-id",
+        "api-reference/apistrategy-management/list-station-strategy-plan"
       ]
     },{
-      "group": "v1/Webhook Management",
+      "group": "Api/Webhook Management",
       "pages": [
-        "api-reference/v1webhook-management/list-webhook",
-        "api-reference/v1webhook-management/detail-webhook",
-        "api-reference/v1webhook-management/create-webhook",
-        "api-reference/v1webhook-management/update-webhook",
-        "api-reference/v1webhook-management/delete-webhook",
-        "api-reference/v1webhook-management/test-webhook"
+        "api-reference/apiwebhook-management/list-webhook",
+        "api-reference/apiwebhook-management/detail-webhook",
+        "api-reference/apiwebhook-management/create-webhook",
+        "api-reference/apiwebhook-management/update-webhook",
+        "api-reference/apiwebhook-management/delete-webhook",
+        "api-reference/apiwebhook-management/test-webhook"
 
       ]
     }
