@@ -1,0 +1,50 @@
+---
+title: 'Response and Global Variable'
+description: ''
+---
+- **Response structure**
+
+| name        | type    | required|  remark         |
+| ----------- | ------- | ----- |  -------------    |
+| » code      | string  | true | response code      |
+| » data      | object  | false| response data      |
+| » message   | string  | false| response error message |
+| » success   | boolean | true | response status:true-success false-fail |
+| » requestId | string  | true | request Id, uuid   |
+
+success eg:
+```
+{
+    "code": "0000",
+    "data": {},
+    "message": "Success",
+    "success": true,
+    "requestId": "bad463dfd16e44699dc6298b62abfcd0"
+}
+```
+fail eg:
+```
+
+{
+    "code": "0001",
+    "data": null,
+    "message": "AppId error",
+    "success": false,
+    "requestId": "bad463dfd16e44699dc6298b62abfcd1"
+}
+```
+- **Global error code**
+
+| code        | message    |   remark         |
+| ----------- | ------- |   -------------    |
+| 0000      | Succeed  |        |
+| 0001      | Fail  |        |
+| 0002   | Parameter error  |   |
+| 9999  | Unknown error |   |
+| 401 | Unauthorized  |  No permission   |
+| 429 | Too many request  |     |
+| 500 | Service exception  |     |
+
+- **Global dateTime**
+dateTime format：2024-06-13T00:00:00Z
+dateTime zone：UTC

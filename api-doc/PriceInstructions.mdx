@@ -1,0 +1,24 @@
+---
+title: 'Price Instructions'
+description: ''
+---
+- System prices category
+1. Market:
+An Electricity Market refers to the financial derivative aspect of the electricity spot market where electricity financial derivatives like futures and options are traded.
+2. Retailer：
+Electricity retailers are companies that purchase wholesale electricity from electricity generators. They then sell it at the retail level to the general public for use in homes and businesses. And, they work with the local utility company that delivers that power to customers.
+3. Produtct:
+Retailer's product.The electricity contract between the energy buyer and retailer specifies details such as the price per kilowatt-hour used by the energy buyer.
+
+
+- Price category diagram
+![openapi-price.png](https://api.apifox.cn/api/v1/projects/4401459/resources/461429/image-preview)
+- Use price step
+1. Query price config list according to country iso code based on api '/v1/price/{countryCode}/list'.
+2. Query price details for different time ranges based on price config id based on api '/v1/price/{id}'.
+3. The station bind price based on api '/v1/station/bindPrice'.
+4. Get station prices for different time ranges based on api /v1/station/{stationId}/price
+5. If the station does not use the price , unbind price based on api '/v1/station/unbindPrice'.
+
+
+

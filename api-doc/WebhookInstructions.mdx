@@ -1,0 +1,85 @@
+---
+title: 'Webhook Instructions'
+description: ''
+---
+Webhooks are a mechanism that allows your backend to receive notifications as they occur.
+
+Timeouts, failures, and inactive webhooks
+Webhook deliveries time out after 5 seconds.  After a failed delivery, we will attempt to redeliver your events over 2 hours in increasing intervals.  If any of the retry attempts succeeds, the webhook will be considered healthy again.  But if all retry attempts fail, all pending events will be deleted and your webhook marked as inactive.
+
+If a webhook becomes inactive, it can be reactivated in one of 2 ways:
+
+Use the Test WebhookAPI endpoint
+You can update the webhook using the Update WebhookAPI endpoint
+
+**Supported events**
+| Name | Description |
+| --- | --- |
+| webhook:test | send test webhook message |
+| strategy:plan:create | send strategyplan create result |
+
+
+**Example deliveries**
+**webhook:test**
+
+```
+[
+    {
+        "version": "v1",
+        "event": "webhook:test",
+        "createTime": "2024-07-01T00:00:00Z"
+    }
+]
+```
+
+
+**strategy:plan:create**
+The data follows the same response schema as /v1/strategy/station/{stationId}
+
+```
+[
+    {
+        "version": "v1",
+        "event": "strategy:plan:create",
+        "createTime": "2024-07-01T00:00:00Z",
+        "data": {
+            "stationId": 1,
+            "timeZone": "Australia/Sydney",
+            "planId": "1",
+            "status": "PLAN:EXECUTING:PROGRESSING",
+            "createTime": "2024-07-01T00:00:00Z",
+            "refreshTime": "2024-07-01T00:00:00Z",
+            "failCode": "",
+            "failReason": "",
+            "plan": [
+                {
+                    "deviceSn": "1234567abc",
+                    "deviceId": 1,
+                    "controlUnit": "BATTERY",
+                    "controlMode": "ai",
+                    "strategyParams": {
+                        "frequency": 30,
+                        "effectTime": "2024-07-01T00:00:00Z",
+                        "data": [
+                            {
+                                "active": "power",
+                                "time": "2024-08-07T00:00:00Z",
+                                "power": {
+                                    "value": 5.0,
+                                    "unit": ""
+                                },
+                                "mode": {
+                                    "value": "SU"
+                                },
+                                "switchOpen": {
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]
+```

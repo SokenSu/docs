@@ -1,0 +1,21 @@
+---
+title: 'Strategy Instructions'
+description: ''
+---
+- Update the station strategy policy based on api '/v1/strategy/updateStrategyPolicy',The strategy plan is generated after about 40 seconds，You can obtain the result of the strategy plan in the following two ways：
+  1. The api '/v1/strategy/station/{stationId}/plan/{planId}' or '/v1/strategy/station/{stationId}' is polled every 5 seconds until the status is not CONSIDERING.
+  2. Wait for the webhook push, provided that the webhook is configured and available.
+
+- Call api '/v1/strategy/refreshStrategyPlan' can use the current strategy policy generate new strategy plan, do not need to modify strategy policy
+
+- Query strategy plan history based on '/v1/strategy/plan/list' and query strategy plan details based on '/v1/strategy/station/{stationId}/plan/{planId}'
+- Strategy status diagram
+
+![openapi-strategy-status.png](https://api.apifox.cn/api/v1/projects/4401459/resources/461254/image-preview)
+
+- Case1:Update strategy policy for the first time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING；After generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，update strategy policy then create a new plan,the old plan status updates PLAN:END:INVALID，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING; After generation plan results, the current status is PLAN: EXECUTING: PROGRESSING.
+- Case2:Update strategy policy for the first time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING.If no plan result is generated,the current status is CONSIDERING and update strategy policy at this time，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，after generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，until the end of the plan，the status updates PLAN:END:FINISHED.
+- Case3:The current status is PLAN:END:*，Update strategy policy or refresh strategy policy，wait 30 seconds to trigger the ai engine，you can update strategy policy during this time window，the current status is CONSIDERING，after generation plan results, the current status is PLAN: EXECUTING: PROGRESSING，until the end of the plan，the status updates PLAN:END:FINISHED.
+- Strategy generation use-case diagram
+
+![openapi-strategy-TimeWindow.png](https://api.apifox.cn/api/v1/projects/4401459/resources/461255/image-preview)

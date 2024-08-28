@@ -40,11 +40,20 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Home",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "introduction"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "api-doc/AccessInstructions",
+        "api-doc/ResponseAndGlobalVariable",
+        "api-doc/APICredentials",
+        "api-doc/StrategyInstructions",
+        "api-doc/PriceInstructions",
+        "api-doc/WebhookInstructions"
       ]
     },
     {
