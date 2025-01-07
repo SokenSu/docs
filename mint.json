@@ -69,59 +69,84 @@
       ]
     },
     {
-      "group": "Api/Station Management",
+      "group": "OpenAPI/Station Management",
       "pages": [
-        "api-reference/apistation-management/create-station",
-        "api-reference/apistation-management/get-station-info",
-        "api-reference/apistation-management/get-station-price-detail",
-        "api-reference/apistation-management/update-station-info",
-        "api-reference/apistation-management/station-bind-price",
-        "api-reference/apistation-management/station-unbind-price",
-        "api-reference/apistation-management/delete-station",
-        "api-reference/apistation-management/list-station-info"
+        "api-reference\\openapistation-management\\get-station-info",
+        "api-reference\\openapistation-management\\list-station-info",
+        "api-reference\\openapistation-management\\statistics-grid-energy",
+        "api-reference\\openapistation-management\\statistics-grid-energydaymonthyear",
+        "api-reference\\openapistation-management\\statistics-pv-energy",
+        "api-reference\\openapistation-management\\statistics-station-pv-energydaymonthyear"
       ]
     },
     {
-      "group": "Api/Device Management",
+      "group": "OpenAPI/Device Management",
       "pages": [
-        "api-reference/apidevice-management/list-device",
-        "api-reference/apidevice-management/get-device-info",
-        "api-reference/apidevice-management/create-device",
-        "api-reference/apidevice-management/update-device",
-        "api-reference/apidevice-management/get-device-realtime-data",
-        "api-reference/apidevice-management/get-device-history-data",
-        "api-reference/apidevice-management/upload-device-data",
-        "api-reference/apidevice-management/unbind-device",
-        "api-reference/apidevice-management/device-bind-station"
+        "api-reference\\openapidevice-management\\list-device",
+        "api-reference\\openapidevice-management\\get-device-info",
+        "api-reference\\openapidevice-management\\get-device-realtime-data",
+        "api-reference\\openapidevice-management\\get-device-history-data",
+        "api-reference\\openapidevice-management\\device-execute-command",
+        "api-reference\\openapidevice-management\\get-device-command-event"
       ]
     },
     {
-      "group": "Api/Price Management",
+      "group": "OpenAPI/Customer User Management",
       "pages": [
-        "api-reference/apiprice-management/get-country-price-list",
-        "api-reference/apiprice-management/get-price-detail"
+        "api-reference\\openapicustomer-user-management\\list-customer-user"
       ]
     },
     {
-      "group": "Api/Strategy Management",
+      "group": "OpenAPI/Installer Management",
       "pages": [
-        "api-reference/apistrategy-management/update-station-strategy-policy",
-        "api-reference/apistrategy-management/refresh-station-strategy-plan",
-        "api-reference/apistrategy-management/get-station-strategy-policy",
-        "api-reference/apistrategy-management/get-station-current-strategy-plan",
-        "api-reference/apistrategy-management/get-station-strategy-by-plan-id",
-        "api-reference/apistrategy-management/list-station-strategy-plan"
+        "api-reference\\openapiinstaller-management\\list-device-installer-info"
+      ]
+    },
+    {
+      "group": "OpenAI/Station Management",
+      "pages": [
+        "api-reference\\openaistation-management\\create-station",
+        "api-reference\\openaistation-management\\get-station-price-detail",
+        "api-reference\\openaistation-management\\update-station-info",
+        "api-reference\\openaistation-management\\station-bind-price",
+        "api-reference\\openaistation-management\\station-unbind-price",
+        "api-reference\\openaistation-management\\delete-station"
+      ]
+    },
+    {
+      "group": "OpenAI/Device Management",
+      "pages": [
+        "api-reference\\openaidevice-management\\create-device",
+        "api-reference\\openaidevice-management\\update-device",
+        "api-reference\\openaidevice-management\\upload-device-data",
+        "api-reference\\openaidevice-management\\unbind-device",
+        "api-reference\\openaidevice-management\\device-bind-station"
+      ]
+    },
+    {
+      "group": "OpenAI/Strategy Management",
+      "pages": [
+        "api-reference\\openaistrategy-management\\update-station-strategy-policy",
+        "api-reference\\openaistrategy-management\\refresh-station-strategy-plan",
+        "api-reference\\openaistrategy-management\\get-station-strategy-policy",
+        "api-reference\\openaistrategy-management\\get-station-current-strategy-plan",
+        "api-reference\\openaistrategy-management\\get-station-strategy-by-plan-id",
+        "api-reference\\openaistrategy-management\\list-station-strategy-plan"
+      ]
+    },
+    {
+      "group": "OpenAI/Price Management",
+      "pages": [
+        "api-reference\\openaiprice-management\\get-country-price-list",
+        "api-reference\\openaiprice-management\\get-price-detail"
       ]
     },{
-      "group": "Api/Webhook Management",
+      "group": "Webhook Management",
       "pages": [
-        "api-reference/apiwebhook-management/list-webhook",
-        "api-reference/apiwebhook-management/detail-webhook",
-        "api-reference/apiwebhook-management/create-webhook",
-        "api-reference/apiwebhook-management/update-webhook",
-        "api-reference/apiwebhook-management/delete-webhook",
-        "api-reference/apiwebhook-management/test-webhook"
-
+        "api-reference\\webhook-management\\list-webhook",
+        "api-reference\\webhook-management\\update-webhook",
+        "api-reference\\webhook-management\\delete-webhook",
+        "api-reference\\webhook-management\\test-webhook"
       ]
     }
   ],
