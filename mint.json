@@ -71,83 +71,83 @@
     {
       "group": "OpenAPI/Station Management",
       "pages": [
-        "api-reference\\openapistation-management\\get-station-info",
-        "api-reference\\openapistation-management\\list-station-info",
-        "api-reference\\openapistation-management\\statistics-grid-energy",
-        "api-reference\\openapistation-management\\statistics-grid-energydaymonthyear",
-        "api-reference\\openapistation-management\\statistics-pv-energy",
-        "api-reference\\openapistation-management\\statistics-station-pv-energydaymonthyear"
+        "api-reference/openapistation-management/get-station-info",
+        "api-reference/openapistation-management/list-station-info",
+        "api-reference/openapistation-management/statistics-grid-energy",
+        "api-reference/openapistation-management/statistics-grid-energydaymonthyear",
+        "api-reference/openapistation-management/statistics-pv-energy",
+        "api-reference/openapistation-management/statistics-station-pv-energydaymonthyear"
       ]
     },
     {
       "group": "OpenAPI/Device Management",
       "pages": [
-        "api-reference\\openapidevice-management\\list-device",
-        "api-reference\\openapidevice-management\\get-device-info",
-        "api-reference\\openapidevice-management\\get-device-realtime-data",
-        "api-reference\\openapidevice-management\\get-device-history-data",
-        "api-reference\\openapidevice-management\\device-execute-command",
-        "api-reference\\openapidevice-management\\get-device-command-event"
+        "api-reference/openapidevice-management/list-device",
+        "api-reference/openapidevice-management/get-device-info",
+        "api-reference/openapidevice-management/get-device-realtime-data",
+        "api-reference/openapidevice-management/get-device-history-data",
+        "api-reference/openapidevice-management/device-execute-command",
+        "api-reference/openapidevice-management/get-device-command-event"
       ]
     },
     {
       "group": "OpenAPI/Customer User Management",
       "pages": [
-        "api-reference\\openapicustomer-user-management\\list-customer-user"
+        "api-reference/openapicustomer-user-management/list-customer-user"
       ]
     },
     {
       "group": "OpenAPI/Installer Management",
       "pages": [
-        "api-reference\\openapiinstaller-management\\list-device-installer-info"
+        "api-reference/openapiinstaller-management/list-device-installer-info"
       ]
     },
     {
       "group": "OpenAI/Station Management",
       "pages": [
-        "api-reference\\openaistation-management\\create-station",
-        "api-reference\\openaistation-management\\get-station-price-detail",
-        "api-reference\\openaistation-management\\update-station-info",
-        "api-reference\\openaistation-management\\station-bind-price",
-        "api-reference\\openaistation-management\\station-unbind-price",
-        "api-reference\\openaistation-management\\delete-station"
+        "api-reference/openaistation-management/create-station",
+        "api-reference/openaistation-management/get-station-price-detail",
+        "api-reference/openaistation-management/update-station-info",
+        "api-reference/openaistation-management/station-bind-price",
+        "api-reference/openaistation-management/station-unbind-price",
+        "api-reference/openaistation-management/delete-station"
       ]
     },
     {
       "group": "OpenAI/Device Management",
       "pages": [
-        "api-reference\\openaidevice-management\\create-device",
-        "api-reference\\openaidevice-management\\update-device",
-        "api-reference\\openaidevice-management\\upload-device-data",
-        "api-reference\\openaidevice-management\\unbind-device",
-        "api-reference\\openaidevice-management\\device-bind-station"
+        "api-reference/openaidevice-management/create-device",
+        "api-reference/openaidevice-management/update-device",
+        "api-reference/openaidevice-management/upload-device-data",
+        "api-reference/openaidevice-management/unbind-device",
+        "api-reference/openaidevice-management/device-bind-station"
       ]
     },
     {
       "group": "OpenAI/Strategy Management",
       "pages": [
-        "api-reference\\openaistrategy-management\\update-station-strategy-policy",
-        "api-reference\\openaistrategy-management\\refresh-station-strategy-plan",
-        "api-reference\\openaistrategy-management\\get-station-strategy-policy",
-        "api-reference\\openaistrategy-management\\get-station-current-strategy-plan",
-        "api-reference\\openaistrategy-management\\get-station-strategy-by-plan-id",
-        "api-reference\\openaistrategy-management\\list-station-strategy-plan"
+        "api-reference/openaistrategy-management/update-station-strategy-policy",
+        "api-reference/openaistrategy-management/refresh-station-strategy-plan",
+        "api-reference/openaistrategy-management/get-station-strategy-policy",
+        "api-reference/openaistrategy-management/get-station-current-strategy-plan",
+        "api-reference/openaistrategy-management/get-station-strategy-by-plan-id",
+        "api-reference/openaistrategy-management/list-station-strategy-plan"
       ]
     },
     {
       "group": "OpenAI/Price Management",
       "pages": [
-        "api-reference\\openaiprice-management\\get-country-price-list",
-        "api-reference\\openaiprice-management\\get-price-detail"
+        "api-reference/openaiprice-management/get-country-price-list",
+        "api-reference/openaiprice-management/get-price-detail"
       ]
     },
     {
       "group": "Webhook Management",
       "pages": [
-        "api-reference\\webhook-management\\list-webhook",
-        "api-reference\\webhook-management\\update-webhook",
-        "api-reference\\webhook-management\\delete-webhook",
-        "api-reference\\webhook-management\\test-webhook"
+        "api-reference/webhook-management/list-webhook",
+        "api-reference/webhook-management/update-webhook",
+        "api-reference/webhook-management/delete-webhook",
+        "api-reference/webhook-management/test-webhook"
       ]
     }
   ],
