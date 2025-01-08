@@ -140,7 +140,8 @@
         "api-reference\\openaiprice-management\\get-country-price-list",
         "api-reference\\openaiprice-management\\get-price-detail"
       ]
-    },{
+    },
+    {
       "group": "Webhook Management",
       "pages": [
         "api-reference\\webhook-management\\list-webhook",
