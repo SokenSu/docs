@@ -7,46 +7,16 @@
   },
   "tags": [
     {
-      "name": "Authentication"
-    },
-    {
-      "name": "OpenAI"
-    },
-    {
-      "name": "OpenAI/Station Management"
-    },
-    {
-      "name": "OpenAI/Device Management"
-    },
-    {
-      "name": "OpenAI/Strategy Management"
-    },
-    {
-      "name": "OpenAI/Price Management"
-    },
-    {
-      "name": "OpenAPI"
-    },
-    {
-      "name": "OpenAPI/Customer User Management"
-    },
-    {
       "name": "OpenAPI/Station Management"
     },
     {
       "name": "OpenAPI/Device Management"
     },
     {
+      "name": "OpenAPI/Customer User Management"
+    },
+    {
       "name": "OpenAPI/Installer Management"
-    },
-    {
-      "name": "Webhook Management"
-    },
-    {
-      "name": "Price Introduction"
-    },
-    {
-      "name": "Strategy Introduction"
     }
   ],
   "paths": {
@@ -55,9 +25,7 @@
         "summary": "Get Token",
         "deprecated": false,
         "description": "Generate accessToken based on appId and appSecret.Oauth2 authentication.",
-        "tags": [
-          "Authentication"
-        ],
+        "tags": [],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -184,7 +152,6 @@
         "deprecated": false,
         "description": "Query station details.",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
@@ -335,7 +302,6 @@
         "deprecated": false,
         "description": "Page query the station list.",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
@@ -508,9 +474,7 @@
         "summary": "Create station",
         "deprecated": false,
         "description": "Create a station.",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -653,9 +617,7 @@
         "summary": "Get station price detail",
         "deprecated": false,
         "description": "Get station prices for different time ranges,startTime and endTime The maximum interval is 2 days.",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "stationId",
@@ -1118,9 +1080,7 @@
         "summary": "Update station info",
         "deprecated": false,
         "description": "Modifying station Information.",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -1259,9 +1219,7 @@
         "summary": "Station bind price",
         "deprecated": false,
         "description": "Get priceId through api '/v1/price/{countryCode}/list', the station bind price. \n1. After the binding market, package or retailer covers the previous binding, the price will change on the day after modification, and the historical price will remain unchanged\n2. Set direction=BOTHWAY and then direction=IMPORT or EXPORT. All previous Settings are cleared and only the current direction is retained\n3. Set the input parameter direction=IMPORT or EXPORT first, and then set direction=IMPORT or EXPORT. The same direction is overwritten\n4. Set the input parameter direction=IMPORT, EXPORT, or BOTHWAY, and then set direction=BOTHWAY to overwrite all directions\n5. Directions:\nMarket, package, or retailer direction=BOTHWAY, this api binding supports BOTHWAY EXPORT IMPORT\nMarket, package, or retailer direction=IMPORT, which is supported by this api binding\nMarket, package, or retailer direction=EXPORT, which is supported by this api binding\n\neg：\n1. bind market support:BOTHWAY EXPORT IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n}\n```\n2. bind product support:BOTHWAY EXPORT IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n}\n```\n3.  bind retailer Amber must:BOTHWAY\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n    \"expandParam\": {\n        \"token\": \"psk_18767dbc7efad76a24d190f291d72c40\"\n    }\n}\n```\n4.  bind retailer Tibber must:IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"IMPORT\",\n    \"expandParam\": {\n        \"token\": \"psk_18767dbc7efad76a24d190f291d72c40\"\n    }\n}\n```\n5. bind retailer LocalVolts must:BOTHWAY\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n    \"expandParam\": {\n        \"partner\": \"xxxxxxxxxxxxxx\",\n        \"apiKey\": \"xxxxxxxxxxxxxx\",\n    }\n}\n```\n\n",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -1386,9 +1344,7 @@
         "summary": "Station unbind price",
         "deprecated": false,
         "description": "The station unbind price.\n",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -1486,9 +1442,7 @@
         "summary": "Delete station",
         "deprecated": false,
         "description": "Delete a station.",
-        "tags": [
-          "OpenAI/Station Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -1580,7 +1534,6 @@
         "deprecated": false,
         "description": "Page query the device list.",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
@@ -1878,7 +1831,6 @@
         "description": "Query device details.",
         "tags": [
           "OpenAPI/Device Management",
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -2101,7 +2053,6 @@
         "description": "Query device realtime data.\n\nActive key\n| deviceType | name       | key              |unit|\n|----------|----------------|----------------------|--|\n| PV | Total photovoltaic power | PV_AC_AP |kW|\n| PV | Accumulated photovoltaic power generation | PV_TOTAL_GEN_E |kWh|\n| PV | Photovoltaic energy output of the day | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY | Positive charge and negative discharge | BT_AP |kW|\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated electric energy | BT_DISCH_E |kWh|\n| BATTERY | | BT_DAILY_CH_E |kWh|\n| BATTERY | The current discharge energy | BT_DAILY_DISCH_E |kWh|\n| GRID | Total power of the grid | GRID_EM_AP |kW|\n| GRID | Accumulated purchased electricity of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated grid-connected capacity | GRID_EM_BD_E |kWh|\n| GRID | Purchased electricity quantity of the grid today | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Current grid connection quantity | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load electricity consumption | LOAD_EM_FD_E |kWh|\n| LOAD | Load electricity consumption for today | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS |\n| CHARGING_PILE | Real-time charging pile power | CHP_OUT_P|kW|",
         "tags": [
           "OpenAPI/Device Management",
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -2247,7 +2198,6 @@
         "deprecated": false,
         "description": "Query device history data.\nkey explanation of the definition of object model:\nReference interface: /v1/device/{deviceId}/uploadData\nActive key\n| deviceType | name       | key              |unit|\n|----------|----------------|----------------------|--|\n| PV | Total photovoltaic power | PV_AC_AP |kW|\n| PV | Accumulated photovoltaic power generation | PV_TOTAL_GEN_E |kWh|\n| PV | Photovoltaic energy output of the day | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY | Positive charge and negative discharge | BT_AP |kW|\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated electric energy | BT_DISCH_E |kWh|\n| BATTERY | | BT_DAILY_CH_E |kWh|\n| BATTERY | The current discharge energy | BT_DAILY_DISCH_E |kWh|\n| GRID | Total power of the grid | GRID_EM_AP |kW|\n| GRID | Accumulated purchased electricity of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated grid-connected capacity | GRID_EM_BD_E |kWh|\n| GRID | Purchased electricity quantity of the grid today | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Current grid connection quantity | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load electricity consumption | LOAD_EM_FD_E |kWh|\n| LOAD | Load electricity consumption for today | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS |\n| CHARGING_PILE | Real-time charging pile power | CHP_OUT_P|kW|",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
@@ -4898,9 +4848,7 @@
         "summary": "Create device",
         "deprecated": false,
         "description": "Create a device.\n- Field description of the interface:\n1.deviceType: INVERTER properties Mandatory field\nINVERTER_RATE_POWER The rated power of the inverter is kW\n2.deviceType: Mandatory field for the INVERTER or BATTERY properties\nBATTERY_RATE_CAPACITY Rated battery capacity (kWh)\nBATTERY_DISCHARGING_DEPTH Specifies the battery soc lower limit (%)\nBATTERY_CHARGING_DEPTH Indicates the upper soc % of the battery\nBATTERY_CHARGING_POWER_PERCENT Maximum charging power limit %\nBATTERY_DISCHARGING_POWER_PERCENT Maximum discharge power limit %\nBATTERY_RATE_CHARGING_POWER Rated battery charging power kW\nBATTERY_RATE_DISCHARGING_POWER Rated battery discharge power kW\n3.deviceType: INVERTER or PV\nPV_RATE_POWER Rated PV power kW properties This field is mandatory\nPV_SELL_ENABLE Controllable PV power sales 0 No 1 Indicates the default value. 1 properties Optional field\n4.deviceType: CHARGER properties Mandatory field\nCHARGE_RATE_POWER Rated power of the charging pile kW\nCHARGE_CURRENT Rated current of charging pile A\n\n4. Ensure that deviceBrand and deviceSn are unique devices and cannot be created",
-        "tags": [
-          "OpenAI/Device Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5057,9 +5005,7 @@
         "summary": "Update device",
         "deprecated": false,
         "description": "Modifying device Information.",
-        "tags": [
-          "OpenAI/Device Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5205,9 +5151,7 @@
         "summary": "Upload device data",
         "deprecated": false,
         "description": "Upload device realtime data,As one of the reference indicators of strategy generation after the device is bound to the station.The device is considered online if data is uploaded within 10 minutes, Otherwise, the device is considered offline.Offline devices do not participate in the  strategy.\n- This interface is used to report third-party data to enjoyelec.\n- If the data of a third party is actively pulled, the data return structure provided by the third party is the same as the requested data structure.\n- PV- photovoltaic BATTERY- battery GRID- Mains LOAD- Load HVAC-HVAC CHARGING_PILE- Charging pile\n(Photovoltaic power and cumulative power, mains power and positive and negative cumulative power, battery power and charge and discharge cumulative power and soc, load power and cumulative power) Required fields\nProvide key description\n| Device type | Chinese Description | English KEY | unit |\n|----------|----------------|----------------------|--|\n| PV | The photovoltaic AC A voltage | PV_AC_PHASE_A_V |V|\n| PV | The AC PV B voltage | PV_AC_PHASE_B_V |V|\n| PV | The AC PV C voltage | PV_AC_PHASE_C_V |V|\n| PV | The photovoltaic AC A current | PV_AC_PHASE_A_C |A|\n| PV | photovoltaic AC B current | PV_AC_PHASE_B_C |A|\n| PV | photovoltaic AC C current | PV_AC_PHASE_C_C |A|\n| PV | Total photovoltaic power | PV_AC_AP |kW|\n| PV | A frequency of photovoltaic AC | PV_AC_FREQUENCY |\n| PV | Accumulated photovoltaic power generation | PV_TOTAL_GEN_E |kWh|\n| PV | Photovoltaic energy output of the day | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY | Remaining capacity | BT_SYS_REMAIN_E |kWh|\n| BATTERY   | soh            | BT_SOH              |\n| BATTERY | Positive charge and negative discharge | BT_AP |kW|\n| BATTERY | The voltage | BT_IN_V |V|\n| BATTERY | The current | BT_C |A|\n| BATTERY | The temperature (Celsius) | BT_TEMP |\n| BATTERY | Status: 0: idle, 1: charging, 2: discharging | BT_STATE |\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated electric energy | BT_DISCH_E |kWh|\n| BATTERY | Alarm status: 0: normal, 1: alarm | BT_ALARM_STATUS |\n| BATTERY | | BT_DAILY_CH_E |kWh|\n| BATTERY | The current discharge energy | BT_DAILY_DISCH_E |kWh|\n| BATTERY | Energy storage status | BT_ONLINE |\n| GRID | Grid voltage L1 | GRID_EM_PHASE_A_V |V|\n| GRID | Grid voltage L2 | GRID_EM_PHASE_B_V |V|\n| GRID | Grid voltage L3 | GRID_EM_PHASE_C_V |V|\n| GRID | Grid current L1 | GRID_EM_PHASE_A_C |A|\n| GRID | Grid current L2 | GRID_EM_PHASE_B_C |A|\n| GRID | Grid current L3 | GRID_EM_PHASE_C_C |A|\n| GRID | | GRID_EM_FREQUENCY |\n| GRID | Total power of the grid | GRID_EM_AP |kW|\n| GRID | Accumulated purchased electricity of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated grid-connected capacity | GRID_EM_BD_E |kWh|\n| GRID | Purchased electricity quantity of the grid today | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Current grid connection quantity | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load electricity consumption | LOAD_EM_FD_E |kWh|\n| LOAD | Load electricity consumption for today | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC power HVAC_P |kW|\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| HVAC | zone The current temperature | HVAC_ZONE_CURRENT_TEMP |\n| HVAC | dhw The current temperature | HVAC_DHW_CURRENT_TEMP |\n| HVAC | pool The current temperature | HVAC_POOL_CURRENT_TEMP |\n| HVAC | Current temperature of the heat pump | HVAC_PUMP_ROOM |\n| HVAC | HVAC heat pump power | HVAC_PUMP_P |kW|\n| HVAC | The current heat pump mode | HVAC_PUMP_MODE |\n| HVAC | The current tank mode | HVAC_PUMP_WATER |\n| HVAC | Heat pump status | HVAC_PUMP_STATE |\n| HVAC | Current indoor heat pump temperature | HVAC_PUMP_ROOM_TEMP |\n| HVAC | Outlet temperature (setting) | HVAC_PUMP_WATER |\n| HVAC | Current heat pump tank temperature | HVAC_PUMP_WATER_TEMP |\n| HVAC | Set the heating temperature | HVAC_PUMP_SET_HEAT_TEMP|\n| HVAC | Sets the cooling temperature | HVAC_PUMP_SET_COOL_TEMP|\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | The charging pile event type Started,Updated,Ended | CHP_EVENT_TYPE |\n| CHARGING_PILE | Reason why the charging pile stops | CHP_STOP_REASON |\n| CHARGING_PILE | The charging pile numbers | CHP_REMOTE_START_ID | are incremented when the charging process starts\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS Available Occupied Reserved Unavailable Faulted |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS Charging(charging) EVConnected(connected) SuspendedEV(vehicle suspended) SuspendedEVSE Idle |\n| CHARGING_PILE | Charging pile alarm status 0: normal. 1: alarm | CHP_ALARM_STATUS |\n| CHARGING_PILE | Electricity consumption of this time | CHP_THIS_E |kWh|\n| CHARGING_PILE | The discharge quantity | CHP_THIS_DIS_E |kWh|\n| CHARGING_PILE | Real-time power | CHP_OUT_P |kW|\n| CHARGING_PILE | Number of the charging pile charging flow | CHP_TRANSACTION_ID |\n| CHARGING_PILE | Charging pile heartbeat | CHP_HEART_BEAT |\n| CHARGING_PILE | Online status of the charging pile | CHP_ONLINE |\n| CHARGING_PILE | Maximum charging power | CHP_V2X_MAX_CHARGE_POWER |kW|\n| CHARGING_PILE | Maximum discharge power | CHP_V2X_MAX_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Maximum vehicle battery capacity | CHP_V2X_EV_MAX_ENERGY |\n| CHARGING_PILE | Target electric quantity of arriving vehicle | CHP_V2X_EV_TARGET_ENERGY |\n| CHARGING_PILE | Minimum vehicle energy | CHP_V2X_EV_MIN_ENERGY |kWh|\n| CHARGING_PILE | Minimum charging power | CHP_V2X_MIN_CHARGE_POWER |kW|\n| CHARGING_PILE | Minimum discharge power | CHP_V2X_MIN_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Discharge control mode | CHP_V2X_CONTROL_MODE |\n| CHARGING_PILE | Mobility requirement mode | CHP_V2X_MOBILITY_NEEDS_MODE |\n| CHARGING_PILE | An energy transfer has been requested | CHP_V2X_REQUESTED_ENERGY_TRANSFER |\n| CHARGING_PILE | The maximum power of an EV | CHP_V2X_EV_OFFERED_POWER |kW|\n| CHARGING_PILE | Discharge power | CHP_EXPORT_POWER |kW|\n| CHARGING_PILE | Discharge amount | CHP_EXPORT_ENERGY |kWh|\n| CHARGING_PILE | The maximum current provided to an electric vehicle | CHP_V2X_EV_OFFERED_CURRENT |\n| CHARGING_PILE | Discharge current | CHP_V2X_EXPORT_CURRENT |\n| CHARGING_PILE | | CHP_V2X_EV_DEPARTURE_TIME |\n\n\n",
-        "tags": [
-          "OpenAI/Device Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "deviceId",
@@ -5371,9 +5315,7 @@
         "summary": "Unbind device",
         "deprecated": false,
         "description": "The device unbind station.This device does not participates in strategy generation.",
-        "tags": [
-          "OpenAI/Device Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5471,9 +5413,7 @@
         "summary": "Device bind station",
         "deprecated": false,
         "description": "The device bind station.This device participates in strategy generation.",
-        "tags": [
-          "OpenAI/Device Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5571,9 +5511,7 @@
         "summary": "Update station strategy policy",
         "deprecated": false,
         "description": "Update the station strategy policy.The strategyType and the deviceId(deviceId allows null) form a unique key. If the station strategy policy exists, it is updated, otherwise it is created.\n```\n{\n    \"strategyType\":\"AUTOMATIC\",//Main strategy, default off\n    \"stationId\":\"xxxxx\",\n    \"enable\":true,//strategy enable:1-on 0-off\n    \"version\":\"1\" //strategy version:1\n}\n```\n```\n{\n    \"strategyType\":\"ENERGY_TRADING\",//Grid sell strategy\n    \"stationId\":\"xxxxx\",\n    \"enable\":true,\n    \"version\":\"1\"\n}\n```\n```\n{\n    \"strategyType\": \"DEMAND_CHARGE\",//Grid demandCharge strategy\n    \"stationId\": \"xxxx\",\n    \"enable\": true,\n    \"version\": \"1\",\n    \"expandParam\":{\n        \"targetCapacity\":20,//target power (kW)\n        \"times\":[\n            {\n                \"start\":\"08:00\",\n                \"end\":\"16:00\"\n            }\n        ]\n    }\n}\n```\n```\n{\n    \"strategyType\": \"SMART_CHARGING\",//Charging pile intelligent strategy\n    \"stationId\": \"xxxx\",\n    \"deviceId\": \"XXX\",\n    \"enable\": true,\n    \"version\": \"1\",\n    \"expandParam\": {\n        \"plan\": [\n            {\n                \"startTime\": \"2024-05-05T10:00:00Z\",\n                \"endTime\": \"2024-05-05T18:30:00Z\",\n                \"targetEnergy\": 20 //target Energy (kWh)\n            }\n        ]\n    }\n}\n```\n```\n{\n    \"strategyType\": \"SMART_HEATING\",//Hvac Intelligent strategy\n    \"stationId\": \"xxxx\",\n    \"deviceId\": \"XXX\",\n    \"enable\": true,\n    \"version\": \"1\",\n    \"expandParam\": {\n        \"setLowerTemp\": 23.5,//Lower limit temperature \n        \"setUpperTemp\": 25,//Upper limit temperature\n        \"currentMode\": \"HEAT\" //current mode：HEAT、COOL、AUTO、OFF\n    }\n}\n```\n",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5721,9 +5659,7 @@
         "summary": "Refresh station strategy plan",
         "deprecated": false,
         "description": "Refresh the strategy plan and regenerate the plan under the current strategy.",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -5843,9 +5779,7 @@
         "summary": "Get station strategy policy",
         "deprecated": false,
         "description": "Query the current strategy policy based on stationId.",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "stationId",
@@ -5982,9 +5916,7 @@
         "summary": "Get station current strategy plan",
         "deprecated": false,
         "description": "Query the current strategy plan based on stationId.\nPolicy priority\nMode Control > Switch Control > Power Control\nMode Control for INVERTER > Mode Control for Other Device Types",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "stationId",
@@ -6293,9 +6225,7 @@
         "summary": "Get station strategy by plan ID",
         "deprecated": false,
         "description": "Query the strategy plan based on stationId and planId.You can query details about historical strategy plan.",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "stationId",
@@ -6604,9 +6534,7 @@
         "summary": "List station strategy plan",
         "deprecated": false,
         "description": "Page query strategy plan based on stationId.",
-        "tags": [
-          "OpenAI/Strategy Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "stationId",
@@ -6874,9 +6802,7 @@
         "summary": "Get country price list",
         "deprecated": false,
         "description": "Query price config list according to country iso code.\n- countryCode example: \n  \n| country | countryCode |\n| --- | --- |\n|Germany|\tDE|\n|Australia|\tAU|\n|Netherlands|\tNL|\n|Cyprus|\tCY|\n|Norway|\tNO|\n|Sweden|\tSE|\n|Finland|\tFI|\n|France|\tFR|\n|Denmark|\tDK|\n|Estonia|\tEE|\n|Lithuania|\tLT|\n|Latvia|\tLV|\n|Austria|\tAT|\n|Belgium|\tBE|\n|Luxembourg|\tLU|\n|Poland|\tPL|\n|UK\t|GB|\n|Switzerland|\tCH|\n|Ireland|\tIE|\n|Italy|\tIT|\n",
-        "tags": [
-          "OpenAI/Price Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "countryCode",
@@ -7273,9 +7199,7 @@
         "summary": "Get price detail",
         "deprecated": false,
         "description": "Query price details for different time ranges based on price config id.\n1. Price details that return \"priceType\"= \"RETAILER\" are currently not supported\n\n2. StartTime endTime The maximum interval is 2 days",
-        "tags": [
-          "OpenAI/Price Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "id",
@@ -7549,7 +7473,6 @@
         "description": "",
         "tags": [
           "OpenAPI/Customer User Management",
-          "OpenAPI/Customer User Management",
           "OpenAPI/Customer User Management"
         ],
         "parameters": [
@@ -7662,7 +7585,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
@@ -7800,7 +7722,6 @@
         "description": "",
         "tags": [
           "OpenAPI/Station Management",
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -7912,7 +7833,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
@@ -8043,7 +7963,6 @@
         "description": "",
         "tags": [
           "OpenAPI/Station Management",
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -8150,7 +8069,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -8284,7 +8202,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -8379,7 +8296,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Installer Management",
           "OpenAPI/Installer Management"
         ],
         "parameters": [
@@ -8504,9 +8420,7 @@
         "summary": "List Webhook",
         "deprecated": false,
         "description": "Query the webhook list.",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "apiVersion",
@@ -8631,9 +8545,7 @@
         "summary": "Detail Webhook",
         "deprecated": false,
         "description": "Query webhook details.",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "id",
@@ -8735,9 +8647,7 @@
         "summary": "Create Webhook",
         "deprecated": false,
         "description": "Create a webhook.",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -8843,9 +8753,7 @@
         "summary": "Update Webhook",
         "deprecated": false,
         "description": "Modifying webhook Information.",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -8951,9 +8859,7 @@
         "summary": "Delete Webhook",
         "deprecated": false,
         "description": "Delete a webhook.",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
@@ -9045,9 +8951,7 @@
         "summary": "Test Webhook",
         "deprecated": false,
         "description": "Checks whether the webhook callback url is valid.If the send message succeeds, the invalid status of the webhook becomes valid immediately",
-        "tags": [
-          "Webhook Management"
-        ],
+        "tags": [],
         "parameters": [
           {
             "name": "Authorization",
