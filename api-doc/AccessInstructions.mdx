@@ -8,9 +8,26 @@ This reference provides a comprehensive overview of the OpenAI API features. The
 1. You need to request appId and appSecret and signSecret by email.
 2. The openAI emails you appId and appSecret and signSecret.
 3. You authenticate with appId and appSecret and signSecret.
-4. You can create a station and some devices, bind the station to the devices and the price. You update strategy policy, then the openAI will generate a plan for every device.
-- **Access diagram：**
 
+- **OpenAPI Access diagram：**
+1. You can get customer user info and station info and device info, and control the device.
+<Frame>
+  <img src="/images/openapi-access-dataapi.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+Device control
+
+1. Use appId and appSecret to call Get token for authentication
+2. You can execute the Device execute command to send the control device command, and the status of the control device command is executing
+3. Polling Get Device command event Obtains the result of the control device command until the status of the control device command is success or fail
+4. If you configure a webhook, the webhook notifies you when the control device command is success
+<Frame>
+  <img src="/images/openapi-access-dataapiexecuteCmd.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+- **OpenAI Access diagram：**
+1. You can create a station and some devices, bind the station to the devices and the price. You update strategy policy, then the openAI will generate a plan for every device.
 <Frame>
   <img src="/images/access.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
