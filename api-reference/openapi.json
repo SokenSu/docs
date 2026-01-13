@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "HEMS-OpenAI",
+    "title": "默认模块",
     "description": "",
     "version": "1.0.0"
   },
@@ -134,8 +134,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -147,7 +146,6 @@
         "deprecated": false,
         "description": "Page query the station list.",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -315,7 +313,6 @@
         "deprecated": false,
         "description": "Query station details.",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -585,8 +582,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -671,8 +667,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -805,8 +800,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -925,8 +919,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -1388,8 +1381,7 @@
                   }
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -1481,8 +1473,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -1494,7 +1485,6 @@
         "deprecated": false,
         "description": "Page query the device list.",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -1785,7 +1775,6 @@
         "deprecated": false,
         "description": "Query device details.",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -2000,7 +1989,7 @@
       "post": {
         "summary": "Create device",
         "deprecated": false,
-        "description": "Create a device.\n- Field description of the interface:\n1.deviceType: INVERTER properties Mandatory field\nINVERTER_RATE_POWER The rated power of the inverter is kW\n2.deviceType: Mandatory field for the INVERTER or BATTERY properties\nBATTERY_RATE_CAPACITY Rated battery capacity (kWh)\nBATTERY_DISCHARGING_DEPTH Specifies the battery soc lower limit (%)\nBATTERY_CHARGING_DEPTH Indicates the upper soc % of the battery\nBATTERY_CHARGING_POWER_PERCENT Maximum charging power limit %\nBATTERY_DISCHARGING_POWER_PERCENT Maximum discharge power limit %\nBATTERY_RATE_CHARGING_POWER Rated battery charging power kW\nBATTERY_RATE_DISCHARGING_POWER Rated battery discharge power kW\n3.deviceType: INVERTER or PV\nPV_RATE_POWER Rated PV power kW properties This field is mandatory\nPV_SELL_ENABLE Controllable PV power sales 0 No 1 Indicates the default value. 1 properties Optional field\n4.deviceType: CHARGER properties Mandatory field\nCHARGE_RATE_POWER Rated power of the charging pile kW\nCHARGE_CURRENT Rated current of charging pile A\n\n4. Ensure that deviceBrand and deviceSn are unique devices and cannot be created",
+        "description": "Create a device.\n- Field description of the interface:\n1. deviceType: INVERTER properties Mandatory field\n\n| Property name | Description|\n| ---- | ---- |\n|INVERTER_RATE_POWER | The rated power of the inverter is kW|\n\n2. deviceType: Mandatory field for the INVERTER or BATTERY properties\n\n| Property name | Description|\n| ---- | ---- |\n|BATTERY_RATE_CAPACITY | Rated battery capacity (kWh) |\n|BATTERY_DISCHARGING_DEPTH | Specifies the battery soc lower limit (%) |\n|BATTERY_CHARGING_DEPTH | Indicates the upper soc % of the battery (%)|\n|BATTERY_CHARGING_POWER_PERCENT | Maximum charging power limit (%) |\n|BATTERY_DISCHARGING_POWER_PERCENT | Maximum discharge power limit (%) |\n|BATTERY_RATE_CHARGING_POWER | Rated battery charging power (kW) |\n|BATTERY_RATE_DISCHARGING_POWER | Rated battery discharge power (kW) |\n3. deviceType: INVERTER or PV\n\n| Property name | Description|\n| ---- | ---- |\n|PV_RATE_POWER Rated | PV power kW properties This field is mandatory |\n|PV_SELL_ENABLE | Controllable PV power sales 0 No, 1 Indicates the default value. 1 properties Optional field |\n4. deviceType: CHARGER properties Mandatory field\n\n| Property name | Description|\n| ---- | ---- |\n|CHARGE_RATE_POWER | Rated power of the charging pile (kW)\n|CHARGE_CURRENT Rated | current of charging pile (A)\n\n- Ensure that deviceBrand and deviceSn are unique devices and cannot be created",
         "tags": [],
         "parameters": [
           {
@@ -2216,6 +2205,7 @@
                 "properties": {
                   "PV_RATE_POWER": 10.5,
                   "PV_RATE_CAPACITY": 60,
+                  "PV_SELL_ENABLE": "1",
                   "CHARGE_RATE_POWER": 10.5,
                   "CHARGE_CURRENT": 10.5,
                   "VEH_RATE_POWER": 10.5,
@@ -2295,7 +2285,6 @@
         "deprecated": false,
         "description": "Query device realtime data.\n\nActive key\n| deviceType | name       | key              |unit|\n|----------|----------------|----------------------|--|\n| PV | Total solar power | PV_AC_AP |kW|\n| PV | Accumulated solar generation energy | PV_TOTAL_GEN_E |kWh|\n| PV | Daliy solar generation energy  | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY |Battery power, positive charge and negative discharge | BT_AP |kW|\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated discharge energy | BT_DISCH_E |kWh|\n| BATTERY | Daily charging energy| BT_DAILY_CH_E |kWh|\n| BATTERY | Daily discharge energy | BT_DAILY_DISCH_E |kWh|\n| BATTERY | Battery charging max power| BT_CH_MAX_P |kW|\n| BATTERY | Battery discharge max power| BT_DISCH_MAX_P |kW|\n| GRID | Total power of the grid, positive is import power and negative is export power | GRID_EM_AP |kW|\n| GRID | Accumulated import energy of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated export energy of the grid | GRID_EM_BD_E |kWh|\n| GRID | Daily import energy of the grid | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Daily export energy of the grid | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load consumption energy | LOAD_EM_FD_E |kWh|\n| LOAD | Daily load consumption energy | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS |\n| CHARGING_PILE | Real-time charging pile power | CHP_OUT_P|kW|",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -2436,7 +2425,6 @@
         "deprecated": false,
         "description": "Query device history data.\nkey explanation of the definition of object model:\nReference interface: /v1/device/{deviceId}/uploadData\nActive key\n| deviceType | name       | key              |unit|\n|----------|----------------|----------------------|--|\n| PV | Total solar power | PV_AC_AP |kW|\n| PV | Accumulated solar generation energy | PV_TOTAL_GEN_E |kWh|\n| PV | Daliy solar generation energy  | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY |Battery power, positive charge and negative discharge | BT_AP |kW|\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated discharge energy | BT_DISCH_E |kWh|\n| BATTERY | Daily charging energy| BT_DAILY_CH_E |kWh|\n| BATTERY | Daily discharge energy | BT_DAILY_DISCH_E |kWh|\n| BATTERY | Battery charging max power| BT_CH_MAX_P |kW|\n| BATTERY | Battery discharge max power| BT_DISCH_MAX_P |kW|\n| GRID | Total power of the grid, positive is import power and negative is export power | GRID_EM_AP |kW|\n| GRID | Accumulated import energy of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated export energy of the grid | GRID_EM_BD_E |kWh|\n| GRID | Daily import energy of the grid | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Daily export energy of the grid | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load consumption energy | LOAD_EM_FD_E |kWh|\n| LOAD | Daily load consumption energy | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS |\n| CHARGING_PILE | Real-time charging pile power | CHP_OUT_P|kW|",
         "tags": [
-          "OpenAPI/Device Management",
           "OpenAPI/Device Management"
         ],
         "parameters": [
@@ -5321,8 +5309,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -5952,8 +5939,7 @@
                   "requestId": null
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -6067,8 +6053,7 @@
                   "message": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -6078,7 +6063,7 @@
       "get": {
         "summary": "Get station current strategy plan",
         "deprecated": false,
-        "description": "Query the current strategy plan based on stationId.\nPolicy priority\nMode Control > Switch Control > Power Control\nMode Control for INVERTER > Mode Control for Other Device Types",
+        "description": "## 1. Introduction\n\nQuery the current strategy plan based on stationId.\nPolicy priority\nMode Control > Switch Control > Power Control\nMode Control for INVERTER > Mode Control for Other Device Types\n\n## 2.  Description of Core Strategy Parameters\n\n\n\n---\n\n### `controlScope` – Control Scope Description\n\n| Name   | Description | Remarks |\n| ------ | ----------- | ------- |\n| SINGLE | Single device control | A specific device ID will be provided |\n| GROUP  | Group control (multiple devices) | No specific device ID; usually refers to a group of devices, such as multiple batteries |\n\n---\n\n###  `active.mode` Description\n\n| Name       | Description | Remarks |\n| ---------- | ----------- | ------- |\n| power      | Power control | Positive value for charging, negative value for discharging |\n| switchOpen | Control whether PV exports power to the grid | `0` = Off, `1` = On |\n| mode       | Battery inverter operating mode control | RT, SU, RTSU, BT_IDLE |\n\n---\n\n###  `mode` Description\n\n| Name | Description | Remarks |\n| ---- | ----------- | ------- |\n| RT | Surplus power tracking | If **PV ≥ Load**: the load is supplied first, surplus power charges the battery, and any remaining power is exported to the grid. If **PV < Load**: power is purchased from the grid to supply the load; the battery does not discharge. |\n| SU | Self-consumption (battery neither charges nor discharges) | If **PV ≥ Load**: the load is supplied first, surplus power is exported to the grid; the battery does not charge. If **PV < Load**: the battery discharges first; if insufficient, power is purchased from the grid to supply the load. |\n| RTSU | Self-consumption | In this mode, priority is given to supplying the load, then charging the battery, and finally exporting surplus power to the grid. If **PV > Load + Battery**: the load is supplied first, surplus power charges the battery, and remaining power is exported. If **PV + Battery = Load**: PV and battery jointly supply the load. If **PV + Battery < Load**: PV and battery discharge simultaneously, and additional power is purchased from the grid to meet the load demand. |\n| BT_IDLE | Battery idle | The battery neither charges nor discharges and remains in standby mode |\n",
         "tags": [],
         "parameters": [
           {
@@ -6170,6 +6155,10 @@
                               "controlUnit": {
                                 "type": "string",
                                 "description": "Control equipment type:\n【Load meter：LOAD】【Grid meter：GRID】【Solar：PV】【Energy storage battery：BATTERY】【Charging pile：CHARGER】【vehicle：VEHICLE】【HVAC：HVAC】【Gateway collector：GATEWAY】【Photovoltaic energy storage inverter：INVERTER】"
+                              },
+                              "controlScope": {
+                                "type": "string",
+                                "description": "Control Scope Description【SINGLE 、GROUP  】"
                               },
                               "controlMode": {
                                 "type": "string",
@@ -6291,7 +6280,8 @@
                               "deviceId",
                               "controlUnit",
                               "controlMode",
-                              "strategyParams"
+                              "strategyParams",
+                              "controlScope"
                             ]
                           },
                           "description": "plan detail"
@@ -6335,6 +6325,7 @@
                       {
                         "deviceId": 88,
                         "controlUnit": "BATTERY",
+                        "controlScope": "SINGLE",
                         "strategyParams": {
                           "effectTime": "2024-06-13T00:00:00Z",
                           "data": [
@@ -6487,6 +6478,10 @@
                                 "type": "string",
                                 "description": "Control mode: \nlocal-local mode;\nai-ai control mode ;\nWhen the policy status is PLAN:END:FAIL or PLAN:END:INVALID, the value is local and the device local mode is used"
                               },
+                              "controlScope": {
+                                "type": "string",
+                                "description": "Control Scope Description【SINGLE 、GROUP 】"
+                              },
                               "strategyParams": {
                                 "type": "object",
                                 "properties": {
@@ -6595,7 +6590,8 @@
                             },
                             "required": [
                               "controlUnit",
-                              "controlMode"
+                              "controlMode",
+                              "controlScope"
                             ]
                           },
                           "description": "plan detail"
@@ -6639,6 +6635,7 @@
                       {
                         "deviceId": 88,
                         "controlUnit": "BATTERY",
+                        "controlScope": "SINGLE",
                         "strategyParams": {
                           "effectTime": "2024-06-13T00:00:00Z",
                           "data": [
@@ -6682,682 +6679,12 @@
         "security": []
       }
     },
-    "/v1/price/{countryCode}/list": {
-      "get": {
-        "summary": "Get country price list",
-        "deprecated": false,
-        "description": "Query price config list according to country iso code.\n- countryCode example: \n  \n| country | countryCode |\n| --- | --- |\n|Germany|\tDE|\n|Australia|\tAU|\n|Netherlands|\tNL|\n|Cyprus|\tCY|\n|Norway|\tNO|\n|Sweden|\tSE|\n|Finland|\tFI|\n|France|\tFR|\n|Denmark|\tDK|\n|Estonia|\tEE|\n|Lithuania|\tLT|\n|Latvia|\tLV|\n|Austria|\tAT|\n|Belgium|\tBE|\n|Luxembourg|\tLU|\n|Poland|\tPL|\n|UK\t|GB|\n|Switzerland|\tCH|\n|Ireland|\tIE|\n|Italy|\tIT|\n",
-        "tags": [],
-        "parameters": [
-          {
-            "name": "countryCode",
-            "in": "path",
-            "description": "country iso code eg:DE",
-            "required": true,
-            "example": "GB",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "requestId": {
-                      "type": "string"
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "markets": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "price id"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "price name"
-                              },
-                              "direction": {
-                                "type": "string",
-                                "description": "price direction:BOTHWAY EXPORT IMPORT"
-                              },
-                              "priceCode": {
-                                "type": "string",
-                                "description": "price code"
-                              },
-                              "countryCode": {
-                                "type": "string",
-                                "description": "price country code"
-                              }
-                            },
-                            "required": [
-                              "countryCode"
-                            ]
-                          },
-                          "description": "market price list"
-                        },
-                        "retailers": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "price id"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "price name"
-                              },
-                              "direction": {
-                                "type": "string",
-                                "description": "price direction:BOTHWAY EXPORT IMPORT"
-                              },
-                              "priceSource": {
-                                "type": "string",
-                                "description": "price source：Amber、Tibber、LocalVolts"
-                              },
-                              "countryCode": {
-                                "type": "string",
-                                "description": "price country code"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "direction",
-                              "priceSource",
-                              "countryCode"
-                            ]
-                          },
-                          "description": "retailer price list"
-                        },
-                        "products": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "price id"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "price name"
-                              },
-                              "countryCode": {
-                                "type": "string",
-                                "description": "price country code"
-                              },
-                              "direction": {
-                                "type": "string",
-                                "description": "price direction:BOTHWAY EXPORT IMPORT"
-                              },
-                              "retailerName": {
-                                "type": "string",
-                                "description": "retailer name"
-                              },
-                              "priceCode": {
-                                "type": "string",
-                                "description": "price code"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "countryCode",
-                              "direction",
-                              "retailerName",
-                              "priceCode"
-                            ]
-                          },
-                          "description": "product price list"
-                        }
-                      },
-                      "required": [
-                        "markets",
-                        "retailers",
-                        "products"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "requestId",
-                    "success",
-                    "data",
-                    "message"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": "0000",
-                      "data": {
-                        "markets": [
-                          {
-                            "id": "1723994907974328321",
-                            "type": "MARKET",
-                            "name": "string",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1725350296385011713",
-                            "type": "MARKET",
-                            "name": "1",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727521809316196354",
-                            "type": "MARKET",
-                            "name": "Berlin",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727556518150680578",
-                            "type": "MARKET",
-                            "name": "Germany LU",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727569022113296386",
-                            "type": "MARKET",
-                            "name": "Australia",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1732940337402707970",
-                            "type": "MARKET",
-                            "name": "体验Controller",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          }
-                        ],
-                        "retailers": [
-                          {
-                            "id": "1800730881216585729",
-                            "type": "RETAILER",
-                            "name": "Tibber",
-                            "direction": "IMPORT",
-                            "priceSource": "Tibber",
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1808405266716418049",
-                            "type": "RETAILER",
-                            "name": "(德国)开发自测LocalVolts",
-                            "direction": "IMPORT",
-                            "priceSource": "LocalVolts",
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1724977312706134017",
-                            "type": "RETAILER",
-                            "name": "test prod after upfate2",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1725079334939881475",
-                            "type": "RETAILER",
-                            "name": "atest Export",
-                            "direction": "EXPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727531128094994433",
-                            "type": "RETAILER",
-                            "name": "Save Energy product nameproduc",
-                            "direction": "BOTHWAY",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727597675989925890",
-                            "type": "RETAILER",
-                            "name": "import test",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727599232823296001",
-                            "type": "RETAILER",
-                            "name": "有数据Export b",
-                            "direction": "EXPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727891939128401922",
-                            "type": "RETAILER",
-                            "name": "product-import",
-                            "direction": "IMPORT",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1732940831240060930",
-                            "type": "RETAILER",
-                            "name": "Controller",
-                            "direction": "BOTHWAY",
-                            "priceSource": null,
-                            "currentPrice": null,
-                            "additionalTax": null,
-                            "countryCode": "DE"
-                          }
-                        ]
-                      },
-                      "message": "Success",
-                      "success": true,
-                      "requestId": null
-                    }
-                  },
-                  "2": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": "0000",
-                      "requestId": null,
-                      "success": true,
-                      "data": {
-                        "markets": [
-                          {
-                            "id": "1727521809316196354",
-                            "priceCode": "DE-LU",
-                            "name": "Berlin",
-                            "direction": "BOTHWAY",
-                            "countryCode": "DE"
-                          },
-                          {
-                            "id": "1727556518150680578",
-                            "priceCode": "DE-LU",
-                            "name": "Germany LU",
-                            "direction": "BOTHWAY",
-                            "countryCode": "DE"
-                          }
-                        ],
-                        "retailers": [
-                          {
-                            "id": "1800730881216585729",
-                            "name": "Tibber",
-                            "direction": "IMPORT",
-                            "priceSource": "Tibber",
-                            "countryCode": "DE"
-                          }
-                        ],
-                        "products": [
-                          {
-                            "id": "1727556518150680578",
-                            "priceCode": "DE-LU",
-                            "name": "Germany LU",
-                            "direction": "BOTHWAY",
-                            "retailerName": "retailer",
-                            "countryCode": "DE"
-                          }
-                        ]
-                      },
-                      "message": "Ut"
-                    }
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/v1/price/{id}": {
-      "get": {
-        "summary": "Get price detail",
-        "deprecated": false,
-        "description": "Query price details for different time ranges based on price config id.\n1. Price details that return \"priceType\"= \"RETAILER\" are currently not supported\n\n2. StartTime endTime The maximum interval is 2 days",
-        "tags": [],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "price id",
-            "required": true,
-            "example": "1",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "startTime",
-            "in": "query",
-            "description": "start time UTC+0 2024-07-01T00:00:00Z",
-            "required": true,
-            "example": "2024-06-13T00:00:00Z",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "endTime",
-            "in": "query",
-            "description": "end time UTC+0 2024-07-01T00:00:00Z",
-            "required": true,
-            "example": "2024-06-14T00:00:00Z",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "requestId": {
-                      "type": "string"
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "priceCode": {
-                          "type": "string",
-                          "description": "price code"
-                        },
-                        "priceType": {
-                          "type": "string",
-                          "description": "price type:  MARKET、PRODUCT"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "price name"
-                        },
-                        "countryCode": {
-                          "type": "string",
-                          "description": "price country code"
-                        },
-                        "prices": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": {
-                                "type": "string",
-                                "description": "price data type:history-history current-current forcast-forcast"
-                              },
-                              "date": {
-                                "type": "string",
-                                "description": "date eg:2024-05-15"
-                              },
-                              "frequency": {
-                                "type": "integer",
-                                "description": "price interval minutes"
-                              },
-                              "startTime": {
-                                "type": "string",
-                                "description": "start time UTC+0 2024-07-01T00:00:00Z"
-                              },
-                              "endTime": {
-                                "type": "string",
-                                "description": "end time UTC+0 2024-07-01T00:00:00Z"
-                              },
-                              "price": {
-                                "type": "number",
-                                "description": "price value"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "description": "price unit"
-                              },
-                              "direction": {
-                                "type": "string",
-                                "description": "price direction:BOTHWAY EXPORT IMPORT"
-                              },
-                              "taxFee": {
-                                "type": "number",
-                                "description": "price taxfee"
-                              }
-                            },
-                            "required": [
-                              "type",
-                              "date",
-                              "frequency",
-                              "startTime",
-                              "endTime",
-                              "price",
-                              "unit",
-                              "direction"
-                            ]
-                          },
-                          "description": "price data list"
-                        }
-                      },
-                      "required": [
-                        "priceCode",
-                        "priceType",
-                        "name",
-                        "countryCode",
-                        "prices"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "requestId",
-                    "success",
-                    "data",
-                    "message"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": "0000",
-                      "requestId": "uuid",
-                      "success": true,
-                      "data": {
-                        "priceCode": "DE-LU",
-                        "priceType": "MARKET",
-                        "priceSource": null,
-                        "name": "DE-LU",
-                        "countryCode": "DE",
-                        "prices": [
-                          {
-                            "type": "history",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          },
-                          {
-                            "type": "current",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          },
-                          {
-                            "type": "forcast",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          }
-                        ]
-                      },
-                      "message": ""
-                    }
-                  },
-                  "2": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": "0000",
-                      "requestId": "uuid",
-                      "success": true,
-                      "data": {
-                        "priceCode": "DE-LU",
-                        "priceType": "PRODUCT",
-                        "priceSource": null,
-                        "name": "DE-LU",
-                        "countryCode": "DE",
-                        "prices": [
-                          {
-                            "type": "history",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          },
-                          {
-                            "type": "current",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          },
-                          {
-                            "type": "forcast",
-                            "date": "2024-05-15",
-                            "frequency": 5,
-                            "startTime": "2024-05-14T14:00:01Z",
-                            "endTime": "2024-05-14T14:05:00Z",
-                            "price": 45.20916,
-                            "taxFee": 0.20916,
-                            "unit": "$/kWh",
-                            "direction": "EXPORT"
-                          }
-                        ]
-                      },
-                      "message": ""
-                    }
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
     "/v1/user/list": {
       "get": {
         "summary": "List Customer User",
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Customer User Management",
           "OpenAPI/Customer User Management"
         ],
         "parameters": [
@@ -7470,7 +6797,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -7601,7 +6927,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -7708,7 +7033,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -7832,7 +7156,6 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "OpenAPI/Station Management",
           "OpenAPI/Station Management"
         ],
         "parameters": [
@@ -8393,8 +7716,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8490,8 +7812,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8591,8 +7912,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8692,8 +8012,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8779,8 +8098,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8878,8 +8196,7 @@
                   "requestId": ""
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
         "security": []
@@ -8887,994 +8204,8 @@
     }
   },
   "components": {
-    "schemas": {
-      "planInfo": {
-        "type": "object",
-        "properties": {
-          "stationId": {
-            "type": "integer"
-          },
-          "planId": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "title": "INIT,SUCCESS"
-          },
-          "createTime": {
-            "type": "string"
-          },
-          "refreshTime": {
-            "type": "string"
-          },
-          "plan": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "deviceSn": {
-                  "type": "string"
-                },
-                "deviceId": {
-                  "type": "integer"
-                },
-                "strategyParams": {
-                  "type": "object",
-                  "properties": {
-                    "frequency": {
-                      "type": "integer"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "effectTime": {
-                      "type": "string"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "time": {
-                            "type": "string"
-                          },
-                          "power": {
-                            "type": "number"
-                          },
-                          "unit": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "time",
-                          "power",
-                          "unit"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "frequency",
-                    "unit",
-                    "effectTime",
-                    "data"
-                  ]
-                }
-              },
-              "required": [
-                "deviceSn",
-                "deviceId"
-              ]
-            }
-          }
-        },
-        "required": [
-          "stationId",
-          "planId",
-          "status",
-          "createTime",
-          "plan",
-          "refreshTime"
-        ]
-      },
-      "OpenapiResult«StationAddResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "错误码",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "message": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "StationAddRequest": {
-        "type": "object",
-        "properties": {
-          "openUserId": {
-            "type": "integer",
-            "description": "",
-            "nullable": true
-          },
-          "stationName": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          },
-          "latitude": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          },
-          "longitude": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          },
-          "timeZone": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          },
-          "city": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          },
-          "country": {
-            "type": "string",
-            "description": "",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiTokenResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiTokenRequest": {
-        "type": "object",
-        "properties": {
-          "appId": {
-            "type": "string",
-            "description": "appID",
-            "nullable": true
-          },
-          "appSecret": {
-            "type": "string",
-            "description": "app密钥",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«InternalCheckTokenResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "InternalCheckTokenRequest": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string",
-            "description": "token",
-            "nullable": true
-          },
-          "appId": {
-            "type": "string",
-            "description": "appID",
-            "nullable": true
-          },
-          "appSecret": {
-            "type": "string",
-            "description": "app密钥",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookListResponse": {
-        "type": "object",
-        "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OpenapiWebhookDto",
-              "description": ""
-            },
-            "description": "openapiClient列表",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiWebhookListResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookListResponse",
-            "description": "返回数据"
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookListRequest": {
-        "type": "object",
-        "properties": {
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "activeStatus": {
-            "type": "integer",
-            "description": "激活状态 0否 1是",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookDetailResponse": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "主键",
-            "nullable": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "description": "回调地址",
-            "nullable": true
-          },
-          "activeStatus": {
-            "type": "integer",
-            "description": "激活状态 0否 1是",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiWebhookDetailResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookDetailResponse",
-            "description": "返回数据"
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«Void»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "null",
-            "nullable": true
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookCreateRequest": {
-        "type": "object",
-        "properties": {
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "description": "回调地址",
-            "nullable": true
-          }
-        },
-        "required": [
-          "url"
-        ]
-      },
-      "OpenapiWebhookEditRequest": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "description": "回调地址",
-            "nullable": true
-          },
-          "activeStatus": {
-            "type": "integer",
-            "description": "激活状态 0否 1是",
-            "nullable": true
-          }
-        },
-        "required": [
-          "webhookId"
-        ]
-      },
-      "OpenapiWebhookDeleteRequest": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          }
-        },
-        "required": [
-          "webhookId"
-        ]
-      },
-      "OpenapiWebhookTestRequest": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          }
-        },
-        "required": [
-          "webhookId"
-        ]
-      },
-      "OpenapiClientListResponse": {
-        "type": "object",
-        "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "description": "",
-              "type": "object",
-              "properties": {}
-            },
-            "description": "openapiClient列表",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiClientListResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiClientListResponse",
-            "description": "返回数据"
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiClientListRequest": {
-        "type": "object",
-        "properties": {
-          "appId": {
-            "type": "string",
-            "description": "应用id",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "名称",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称",
-            "nullable": true
-          },
-          "environment": {
-            "type": "string",
-            "description": "环境：PRD-生产 SANDBOX-沙盒",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiClientDetailResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "主键",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "名称",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称",
-            "nullable": true
-          },
-          "displayLogo": {
-            "type": "string",
-            "description": "显示logo的url",
-            "nullable": true
-          },
-          "environment": {
-            "type": "string",
-            "description": "环境：PRD-生产 SANDBOX-沙盒",
-            "nullable": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "appId": {
-            "type": "string",
-            "description": "应用id",
-            "nullable": true
-          },
-          "appSecret": {
-            "type": "string",
-            "description": "秘钥",
-            "nullable": true
-          },
-          "tokenExpireTime": {
-            "type": "integer",
-            "description": "token过期时间(秒)",
-            "nullable": true
-          },
-          "refreshExpireTime": {
-            "type": "integer",
-            "description": "refreshToken过期时间(秒)",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiClientDetailResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiClientDetailResponse",
-            "description": "返回数据"
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiClientCreateRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "名称",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称",
-            "nullable": true
-          },
-          "displayLogo": {
-            "type": "string",
-            "description": "显示logo的url",
-            "nullable": true
-          },
-          "environment": {
-            "type": "string",
-            "description": "环境：PRD-生产 SANDBOX-沙盒",
-            "nullable": true
-          }
-        },
-        "required": [
-          "name",
-          "displayName",
-          "environment"
-        ]
-      },
-      "OpenapiClientEditRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "名称",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称",
-            "nullable": true
-          },
-          "displayLogo": {
-            "type": "string",
-            "description": "显示logo的url",
-            "nullable": true
-          },
-          "environment": {
-            "type": "string",
-            "description": "环境：PRD-生产 SANDBOX-沙盒",
-            "nullable": true
-          }
-        },
-        "required": [
-          "id"
-        ]
-      },
-      "OpenapiClientDeleteRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookTestResultResponse": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "body": {
-            "type": "string",
-            "description": "body",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«OpenapiWebhookTestResultResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "错误码",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookTestResultResponse",
-            "description": "返回数据"
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«CommonEnumResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "错误码",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "CommonResult«CommonUploadResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "错误码",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "msg": {
-            "type": "string",
-            "description": "错误提示，用户可阅读",
-            "nullable": true
-          },
-          "updateTime": {
-            "type": "string",
-            "description": "UTC0时间 格式2023-10-18T03:54:01Z",
-            "default": "LocalDateTimeUtil\n        .format(LocalDateTime.now(ZoneOffset.UTC), DEFAULT_UTC_DATE_TIME_FORMAT)",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«OpenapiClient»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "object",
-            "properties": {}
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookDto": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "主键",
-            "nullable": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "description": "api版本",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "description": "回调地址",
-            "nullable": true
-          },
-          "activeStatus": {
-            "type": "integer",
-            "description": "激活状态 0否 1是",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«OpenapiWebhookListResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookListResponse",
-            "description": "返回数据"
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«OpenapiWebhookDetailResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookDetailResponse",
-            "description": "返回数据"
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«Void»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "description": "返回数据",
-            "type": "null",
-            "nullable": true
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«OpenapiWebhookTestResultResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookTestResultResponse",
-            "description": "返回数据"
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiWebhookCreateResponse": {
-        "type": "object",
-        "properties": {
-          "webhookId": {
-            "type": "integer",
-            "description": "id",
-            "nullable": true
-          }
-        }
-      },
-      "OpenapiCommonResult«OpenapiWebhookCreateResponse»": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code",
-            "nullable": true
-          },
-          "data": {
-            "$ref": "#/components/schemas/OpenapiWebhookCreateResponse",
-            "description": "返回数据"
-          },
-          "message": {
-            "type": "string",
-            "description": "msg",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean",
-            "description": "true 成功 false 失败",
-            "default": "true",
-            "nullable": true
-          },
-          "requestId": {
-            "type": "string",
-            "description": "请求ID",
-            "nullable": true
-          }
-        }
-      }
-    },
+    "schemas": {},
+    "responses": {},
     "securitySchemes": {}
   },
   "servers": [],

@@ -135,15 +135,10 @@
       ]
     },
     {
-      "group": "OpenAI/Price Management",
-      "pages": [
-        "api-reference/openaiprice-management/get-country-price-list",
-        "api-reference/openaiprice-management/get-price-detail"
-      ]
-    },
-    {
       "group": "Webhook Management",
       "pages": [
+        "api-reference/webhook-management/create-webhook",
+        "api-reference/webhook-management/detail-webhook",
         "api-reference/webhook-management/list-webhook",
         "api-reference/webhook-management/update-webhook",
         "api-reference/webhook-management/delete-webhook",
