@@ -806,125 +806,6 @@
         "security": []
       }
     },
-    "/v1/station/bindPrice": {
-      "post": {
-        "summary": "Station bind price",
-        "deprecated": false,
-        "description": "Get priceId through api '/v1/price/{countryCode}/list', the station bind price. \n1. After the binding market, package or retailer covers the previous binding, the price will change on the day after modification, and the historical price will remain unchanged\n2. Set direction=BOTHWAY and then direction=IMPORT or EXPORT. All previous Settings are cleared and only the current direction is retained\n3. Set the input parameter direction=IMPORT or EXPORT first, and then set direction=IMPORT or EXPORT. The same direction is overwritten\n4. Set the input parameter direction=IMPORT, EXPORT, or BOTHWAY, and then set direction=BOTHWAY to overwrite all directions\n5. Directions:\nMarket, package, or retailer direction=BOTHWAY, this api binding supports BOTHWAY EXPORT IMPORT\nMarket, package, or retailer direction=IMPORT, which is supported by this api binding\nMarket, package, or retailer direction=EXPORT, which is supported by this api binding\n\neg：\n1. bind market support:BOTHWAY EXPORT IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n}\n```\n2. bind product support:BOTHWAY EXPORT IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n}\n```\n3.  bind retailer Amber must:BOTHWAY\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n    \"expandParam\": {\n        \"token\": \"psk_18767dbc7efad76a24d190f291d72c40\"\n    }\n}\n```\n4.  bind retailer Tibber must:IMPORT\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"IMPORT\",\n    \"expandParam\": {\n        \"token\": \"psk_18767dbc7efad76a24d190f291d72c40\"\n    }\n}\n```\n5. bind retailer LocalVolts must:BOTHWAY\n```\n{\n    \"stationId\": \"1818106959310934017\",\n    \"priceId\": \"1818107260584292353\",\n    \"direction\": \"BOTHWAY\",\n    \"expandParam\": {\n        \"partner\": \"xxxxxxxxxxxxxx\",\n        \"apiKey\": \"xxxxxxxxxxxxxx\",\n    }\n}\n```\n\n",
-        "tags": [],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "stationId": {
-                    "type": "string",
-                    "description": "station ID"
-                  },
-                  "priceId": {
-                    "type": "string",
-                    "description": "price ID"
-                  },
-                  "direction": {
-                    "type": "string",
-                    "description": "price direction：BOTHWAY EXPORT IMPORT"
-                  },
-                  "expandParam": {
-                    "type": "object",
-                    "properties": {
-                      "token": {
-                        "type": "string",
-                        "description": "retailer Amber or Tibber param"
-                      },
-                      "apiKey": {
-                        "type": "string",
-                        "description": "retailer LocalVolts param"
-                      },
-                      "partner": {
-                        "type": "string",
-                        "description": "retailer  LocalVolts param"
-                      }
-                    },
-                    "description": "retailer price expand param"
-                  }
-                },
-                "required": [
-                  "stationId",
-                  "priceId",
-                  "direction"
-                ]
-              },
-              "example": {
-                "stationId": "1812699012305043457",
-                "priceId": "1727556518150680578",
-                "direction": "IMPORT",
-                "expandParam": {
-                  "token": "2134443534fdsfs"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "requestId": {
-                      "type": "string"
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {}
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "requestId",
-                    "success",
-                    "data",
-                    "message"
-                  ]
-                },
-                "example": {
-                  "code": "0000",
-                  "requestId": "uuid",
-                  "success": true,
-                  "data": null,
-                  "message": ""
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
     "/v1/station/{stationId}/price": {
       "get": {
         "summary": "Get station price detail",
@@ -1379,98 +1260,6 @@
                       "message": ""
                     }
                   }
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
-    "/v1/station/unbindPrice": {
-      "post": {
-        "summary": "Station unbind price",
-        "deprecated": false,
-        "description": "The station unbind price.\n",
-        "tags": [],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "stationId": {
-                    "type": "string",
-                    "description": "station ID"
-                  },
-                  "direction": {
-                    "type": "string",
-                    "description": "price direction：BOTHWAY EXPORT IMPORT"
-                  }
-                },
-                "required": [
-                  "stationId",
-                  "direction"
-                ]
-              },
-              "example": {
-                "stationId": "1812699012305043457",
-                "direction": "IMPORT"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "requestId": {
-                      "type": "string"
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {}
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "requestId",
-                    "success",
-                    "data",
-                    "message"
-                  ]
-                },
-                "example": {
-                  "code": "0000",
-                  "requestId": "uuid",
-                  "success": true,
-                  "data": null,
-                  "message": ""
                 }
               }
             }
@@ -5068,7 +4857,7 @@
       "post": {
         "summary": "Upload device data",
         "deprecated": false,
-        "description": "Upload device realtime data,As one of the reference indicators of strategy generation after the device is bound to the station.The device is considered online if data is uploaded within 10 minutes, Otherwise, the device is considered offline.Offline devices do not participate in the  strategy.\n- This interface is used to report third-party data to enjoyelec.\n- If the data of a third party is actively pulled, the data return structure provided by the third party is the same as the requested data structure.\n- PV- photovoltaic BATTERY- battery GRID- Mains LOAD- Load HVAC-HVAC CHARGING_PILE- Charging pile\n(Photovoltaic power and cumulative power, mains power and positive and negative cumulative power, battery power and charge and discharge cumulative power and soc, load power and cumulative power) Required fields\nProvide key description\n| Device type | Chinese Description | English KEY | unit |\n|----------|----------------|----------------------|--|\n| PV | The photovoltaic AC A voltage | PV_AC_PHASE_A_V |V|\n| PV | The AC PV B voltage | PV_AC_PHASE_B_V |V|\n| PV | The AC PV C voltage | PV_AC_PHASE_C_V |V|\n| PV | The photovoltaic AC A current | PV_AC_PHASE_A_C |A|\n| PV | photovoltaic AC B current | PV_AC_PHASE_B_C |A|\n| PV | photovoltaic AC C current | PV_AC_PHASE_C_C |A|\n| PV | Total photovoltaic power | PV_AC_AP |kW|\n| PV | A frequency of photovoltaic AC | PV_AC_FREQUENCY |\n| PV | Accumulated photovoltaic power generation | PV_TOTAL_GEN_E |kWh|\n| PV | Photovoltaic energy output of the day | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY | Remaining capacity | BT_SYS_REMAIN_E |kWh|\n| BATTERY   | soh            | BT_SOH              |\n| BATTERY | Positive charge and negative discharge | BT_AP |kW|\n| BATTERY | The voltage | BT_IN_V |V|\n| BATTERY | The current | BT_C |A|\n| BATTERY | The temperature (Celsius) | BT_TEMP |\n| BATTERY | Status: 0: idle, 1: charging, 2: discharging | BT_STATE |\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated electric energy | BT_DISCH_E |kWh|\n| BATTERY | Alarm status: 0: normal, 1: alarm | BT_ALARM_STATUS |\n| BATTERY | | BT_DAILY_CH_E |kWh|\n| BATTERY | The current discharge energy | BT_DAILY_DISCH_E |kWh|\n| BATTERY | Energy storage status | BT_ONLINE |\n| GRID | Grid voltage L1 | GRID_EM_PHASE_A_V |V|\n| GRID | Grid voltage L2 | GRID_EM_PHASE_B_V |V|\n| GRID | Grid voltage L3 | GRID_EM_PHASE_C_V |V|\n| GRID | Grid current L1 | GRID_EM_PHASE_A_C |A|\n| GRID | Grid current L2 | GRID_EM_PHASE_B_C |A|\n| GRID | Grid current L3 | GRID_EM_PHASE_C_C |A|\n| GRID | | GRID_EM_FREQUENCY |\n| GRID | Total power of the grid | GRID_EM_AP |kW|\n| GRID | Accumulated purchased electricity of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated grid-connected capacity | GRID_EM_BD_E |kWh|\n| GRID | Purchased electricity quantity of the grid today | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Current grid connection quantity | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load electricity consumption | LOAD_EM_FD_E |kWh|\n| LOAD | Load electricity consumption for today | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC power HVAC_P |kW|\n| HVAC | HVAC mode OFF-0 HEAT-1 COOL-2 AUTO-3 | HVAC_MODE |\n| HVAC | HVAC status | HVAC_STATE |\n| HVAC | The HVAC temperature drops to and is heated at | HVAC_HEAT_POINT |\n| HVAC | The HVAC temperature rises to the point for cooling | HVAC_COOL_POINT |\n| HVAC | zone The current temperature | HVAC_ZONE_CURRENT_TEMP |\n| HVAC | dhw The current temperature | HVAC_DHW_CURRENT_TEMP |\n| HVAC | pool The current temperature | HVAC_POOL_CURRENT_TEMP |\n| HVAC | Current temperature of the heat pump | HVAC_PUMP_ROOM |\n| HVAC | HVAC heat pump power | HVAC_PUMP_P |kW|\n| HVAC | The current heat pump mode | HVAC_PUMP_MODE |\n| HVAC | The current tank mode | HVAC_PUMP_WATER |\n| HVAC | Heat pump status | HVAC_PUMP_STATE |\n| HVAC | Current indoor heat pump temperature | HVAC_PUMP_ROOM_TEMP |\n| HVAC | Outlet temperature (setting) | HVAC_PUMP_WATER |\n| HVAC | Current heat pump tank temperature | HVAC_PUMP_WATER_TEMP |\n| HVAC | Set the heating temperature | HVAC_PUMP_SET_HEAT_TEMP|\n| HVAC | Sets the cooling temperature | HVAC_PUMP_SET_COOL_TEMP|\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | The charging pile event type Started,Updated,Ended | CHP_EVENT_TYPE |\n| CHARGING_PILE | Reason why the charging pile stops | CHP_STOP_REASON |\n| CHARGING_PILE | The charging pile numbers | CHP_REMOTE_START_ID | are incremented when the charging process starts\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS Available Occupied Reserved Unavailable Faulted |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS Charging(charging) EVConnected(connected) SuspendedEV(vehicle suspended) SuspendedEVSE Idle |\n| CHARGING_PILE | Charging pile alarm status 0: normal. 1: alarm | CHP_ALARM_STATUS |\n| CHARGING_PILE | Electricity consumption of this time | CHP_THIS_E |kWh|\n| CHARGING_PILE | The discharge quantity | CHP_THIS_DIS_E |kWh|\n| CHARGING_PILE | Real-time power | CHP_OUT_P |kW|\n| CHARGING_PILE | Number of the charging pile charging flow | CHP_TRANSACTION_ID |\n| CHARGING_PILE | Charging pile heartbeat | CHP_HEART_BEAT |\n| CHARGING_PILE | Online status of the charging pile | CHP_ONLINE |\n| CHARGING_PILE | Maximum charging power | CHP_V2X_MAX_CHARGE_POWER |kW|\n| CHARGING_PILE | Maximum discharge power | CHP_V2X_MAX_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Maximum vehicle battery capacity | CHP_V2X_EV_MAX_ENERGY |\n| CHARGING_PILE | Target electric quantity of arriving vehicle | CHP_V2X_EV_TARGET_ENERGY |\n| CHARGING_PILE | Minimum vehicle energy | CHP_V2X_EV_MIN_ENERGY |kWh|\n| CHARGING_PILE | Minimum charging power | CHP_V2X_MIN_CHARGE_POWER |kW|\n| CHARGING_PILE | Minimum discharge power | CHP_V2X_MIN_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Discharge control mode | CHP_V2X_CONTROL_MODE |\n| CHARGING_PILE | Mobility requirement mode | CHP_V2X_MOBILITY_NEEDS_MODE |\n| CHARGING_PILE | An energy transfer has been requested | CHP_V2X_REQUESTED_ENERGY_TRANSFER |\n| CHARGING_PILE | The maximum power of an EV | CHP_V2X_EV_OFFERED_POWER |kW|\n| CHARGING_PILE | Discharge power | CHP_EXPORT_POWER |kW|\n| CHARGING_PILE | Discharge amount | CHP_EXPORT_ENERGY |kWh|\n| CHARGING_PILE | The maximum current provided to an electric vehicle | CHP_V2X_EV_OFFERED_CURRENT |\n| CHARGING_PILE | Discharge current | CHP_V2X_EXPORT_CURRENT |\n| CHARGING_PILE | | CHP_V2X_EV_DEPARTURE_TIME |\n\n\n",
+        "description": "Upload device realtime data,As one of the reference indicators of strategy generation after the device is bound to the station.The device is considered online if data is uploaded within 10 minutes, Otherwise, the device is considered offline.Offline devices do not participate in the  strategy.\n- This interface is used to report third-party data to enjoyelec.\n- If the data of a third party is actively pulled, the data return structure provided by the third party is the same as the requested data structure.\n- PV- photovoltaic BATTERY- battery GRID- Mains LOAD- Load HVAC-HVAC CHARGING_PILE- Charging pile\n(Photovoltaic power and cumulative power, mains power and positive and negative cumulative power, battery power and charge and discharge cumulative power and soc, load power and cumulative power) \n\n## Required fields\n\n### Provide key description\n\n| Device type | Chinese Description | English KEY | unit |\n|----------|----------------|----------------------|--|\n| PV | The photovoltaic AC A voltage | PV_AC_PHASE_A_V |V|\n| PV | The AC PV B voltage | PV_AC_PHASE_B_V |V|\n| PV | The AC PV C voltage | PV_AC_PHASE_C_V |V|\n| PV | The photovoltaic AC A current | PV_AC_PHASE_A_C |A|\n| PV | photovoltaic AC B current | PV_AC_PHASE_B_C |A|\n| PV | photovoltaic AC C current | PV_AC_PHASE_C_C |A|\n| PV | Total photovoltaic power | PV_AC_AP |kW|\n| PV | A frequency of photovoltaic AC | PV_AC_FREQUENCY |\n| PV | Accumulated photovoltaic power generation | PV_TOTAL_GEN_E |kWh|\n| PV | Photovoltaic energy output of the day | PV_DAILY_GEN_E |kWh|\n| BATTERY   | soc            | BT_SOC              |%|\n| BATTERY | Remaining capacity | BT_SYS_REMAIN_E |kWh|\n| BATTERY   | soh            | BT_SOH              |\n| BATTERY | Positive charge and negative discharge | BT_AP |kW|\n| BATTERY | The voltage | BT_IN_V |V|\n| BATTERY | The current | BT_C |A|\n| BATTERY | The temperature (Celsius) | BT_TEMP |\n| BATTERY | Status: 0: idle, 1: charging, 2: discharging | BT_STATE |\n| BATTERY | Accumulated charging energy | BT_CH_E |kWh|\n| BATTERY | Accumulated electric energy | BT_DISCH_E |kWh|\n| BATTERY | Alarm status: 0: normal, 1: alarm | BT_ALARM_STATUS |\n| BATTERY | | BT_DAILY_CH_E |kWh|\n| BATTERY | The current discharge energy | BT_DAILY_DISCH_E |kWh|\n| BATTERY | Energy storage status | BT_ONLINE |\n| GRID | Grid voltage L1 | GRID_EM_PHASE_A_V |V|\n| GRID | Grid voltage L2 | GRID_EM_PHASE_B_V |V|\n| GRID | Grid voltage L3 | GRID_EM_PHASE_C_V |V|\n| GRID | Grid current L1 | GRID_EM_PHASE_A_C |A|\n| GRID | Grid current L2 | GRID_EM_PHASE_B_C |A|\n| GRID | Grid current L3 | GRID_EM_PHASE_C_C |A|\n| GRID | | GRID_EM_FREQUENCY | |\n| GRID | Total power of the grid | GRID_EM_AP |kW|\n| GRID | Accumulated purchased electricity of the grid | GRID_EM_FD_E |kWh|\n| GRID | Accumulated grid-connected capacity | GRID_EM_BD_E |kWh|\n| GRID | Purchased electricity quantity of the grid today | GRID_EM_DALIY_FD_E |kWh|\n| GRID | Current grid connection quantity | GRID_EM_DALIY_BD_E |kWh|\n| LOAD | Total load power | LOAD_EM_AP |kW|\n| LOAD | Accumulated load electricity consumption | LOAD_EM_FD_E |kWh|\n| LOAD | Load electricity consumption for today | LOAD_EM_DALIY_FD_E |kWh|\n| HVAC | The current HVAC temperature | HVAC_TEMP |\n| HVAC | HVAC power  | HVAC_P |kW|\n| HVAC | HVAC status 1 work 0 offine | HVAC_STATE |\n| HVAC | HVAC zones | HVAC_ZONES|\n| CHARGING_PILE | Charging pile soc | CHP_SOC |\n| CHARGING_PILE | The charging pile event type Started,Updated,Ended | CHP_EVENT_TYPE |\n| CHARGING_PILE | Reason why the charging pile stops | CHP_STOP_REASON |\n| CHARGING_PILE | The charging pile numbers | CHP_REMOTE_START_ID | are incremented when the charging process starts\n| CHARGING_PILE | Number of the charging pile gun (numbered from 1, gun 1 -1) | CHP_CNTR_ID |\n| CHARGING_PILE | Charging duration of the charging pile (seconds) | CHP_CH_DURATION |\n| CHARGING_PILE | Start time of the charging pile (timestamp) | CHP_START_TIME |\n| CHARGING_PILE | End time of the charging pile (timestamp) | CHP_END_TIME |\n| CHARGING_PILE | Charging pile device status | CHP_CNTR_STATUS Available Occupied Reserved Unavailable Faulted |\n| CHARGING_PILE | Charging status of the charging pile | CHP_CH_STATUS Charging(charging) EVConnected(connected) SuspendedEV(vehicle suspended) SuspendedEVSE Idle |\n| CHARGING_PILE | Charging pile alarm status 0: normal. 1: alarm | CHP_ALARM_STATUS |\n| CHARGING_PILE | Electricity consumption of this time | CHP_THIS_E |kWh|\n| CHARGING_PILE | The discharge quantity | CHP_THIS_DIS_E |kWh|\n| CHARGING_PILE | Real-time power | CHP_OUT_P |kW|\n| CHARGING_PILE | Number of the charging pile charging flow | CHP_TRANSACTION_ID |\n| CHARGING_PILE | Charging pile heartbeat | CHP_HEART_BEAT |\n| CHARGING_PILE | Online status of the charging pile | CHP_ONLINE |\n| CHARGING_PILE | Maximum charging power | CHP_V2X_MAX_CHARGE_POWER |kW|\n| CHARGING_PILE | Maximum discharge power | CHP_V2X_MAX_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Maximum vehicle battery capacity | CHP_V2X_EV_MAX_ENERGY |\n| CHARGING_PILE | Target electric quantity of arriving vehicle | CHP_V2X_EV_TARGET_ENERGY |\n| CHARGING_PILE | Minimum vehicle energy | CHP_V2X_EV_MIN_ENERGY |kWh|\n| CHARGING_PILE | Minimum charging power | CHP_V2X_MIN_CHARGE_POWER |kW|\n| CHARGING_PILE | Minimum discharge power | CHP_V2X_MIN_DISCHARGE_POWER |kW|\n| CHARGING_PILE | Discharge control mode | CHP_V2X_CONTROL_MODE |\n| CHARGING_PILE | Mobility requirement mode | CHP_V2X_MOBILITY_NEEDS_MODE |\n| CHARGING_PILE | An energy transfer has been requested | CHP_V2X_REQUESTED_ENERGY_TRANSFER |\n| CHARGING_PILE | The maximum power of an EV | CHP_V2X_EV_OFFERED_POWER |kW|\n| CHARGING_PILE | Discharge power | CHP_EXPORT_POWER |kW|\n| CHARGING_PILE | Discharge amount | CHP_EXPORT_ENERGY |kWh|\n| CHARGING_PILE | The maximum current provided to an electric vehicle | CHP_V2X_EV_OFFERED_CURRENT |\n| CHARGING_PILE | Discharge current | CHP_V2X_EXPORT_CURRENT |\n| CHARGING_PILE | | CHP_V2X_EV_DEPARTURE_TIME |\n\n***\n\n# HVAC_ZONES Configuration Schema\n\n## Root Level Configuration\n\n| Field | Type | Description | Values/Notes |\n|-------|------|-------------|--------------|\n| `switchOpen` | Integer | Heat pump master switch | `0` = OFF, `1` = ON |\n\n## Zone Configuration Array\n\nThe `zone` field contains an array of zone configuration objects with the following structure:\n\n### Common Zone Properties (all zone types)\n\n| Field | Type | Description | Values/Notes |\n|-------|------|-------------|--------------|\n| `switchOpen` | Integer | Zone switch status | `0` = OFF, `1` = ON |\n| `name` | String | Display name for the zone | - |\n| `key` | String | Unique identifier key | Fixed values: `zone1`, `warm1`, `dhw1`, `pool1` |\n| `type` | String | Zone type | Fixed values: `zone`, `warm`, `dhw`, `pool` |\n| `enable` | Integer | Zone support status | `1` = Supported, `0` = Not supported |\n| `currentTemp` | Float | Current temperature reading | Real-time temperature value |\n| `setTemp` | Float | Target temperature setting | Desired temperature setting |\n| `mode` | Integer | Operation mode | `0` = OFF, `1` = HEAT, `2` = COOL, `3` = AUTO |\n\n### Zone Type Specific Details\n\n#### Zone 1 (Main Zone)\n- **Key**: `zone1`\n- **Type**: `zone`\n- **Mode Special Note**: Mode setting is only effective for zone1\n- **Mode Default Value**: `3` (AUTO)\n\n#### Zone 2 (Warm Zone)\n- **Key**: `warm1`\n- **Type**: `warm`\n\n#### Domestic Hot Water (DHW) Zone\n- **Key**: `dhw1`\n- **Type**: `dhw`\n\n#### Pool Zone\n- **Key**: `pool1`\n- **Type**: `pool`\n\n## Operation Mode Definitions\n\n| Value | Mode | Description |\n|-------|------|-------------|\n| `0` | OFF | Zone is turned off |\n| `1` | HEAT | Heating mode |\n| `2` | COOL | Cooling mode |\n| `3` | AUTO | Automatic mode (default for zone1) |\n\n## Status Indicators\n\n| Field | Value | Status |\n|-------|-------|--------|\n| `switchOpen` | `0` | OFF |\n| `switchOpen` | `1` | ON |\n| `enable` | `0` | Not supported |\n| `enable` | `1` | Supported |\n\n## Example JSON Structure\n\n```json\n{\n    \"switchOpen\": 1,\n    \"zone\": [\n        {\n            \"switchOpen\": 1,\n            \"mode\": 1,\n            \"name\": \"zone1\",\n            \"key\": \"zone1\",\n            \"type\": \"zone\",\n            \"enable\": 1,\n            \"currentTemp\": 25.5,\n            \"setTemp\": 25.5\n        },\n        {\n            \"switchOpen\": 1,\n            \"mode\": 3,\n            \"name\": \"zone2\",\n            \"key\": \"warm1\",\n            \"type\": \"warm\",\n            \"enable\": 1,\n            \"currentTemp\": 25.5,\n            \"setTemp\": 25.5\n        },\n        {\n            \"switchOpen\": 1,\n            \"name\": \"dhw\",\n            \"key\": \"dhw1\",\n            \"type\": \"dhw\",\n            \"enable\": 1,\n            \"mode\": 3,\n            \"currentTemp\": 25.5,\n            \"setTemp\": 25.5\n        },\n        {\n            \"switchOpen\": 1,\n            \"name\": \"pool\",\n            \"key\": \"pool1\",\n            \"type\": \"pool\",\n            \"enable\": 1,\n            \"mode\": 3,\n            \"currentTemp\": 25.5,\n            \"setTemp\": 25.5\n        }\n    ]\n}\n```\n",
         "tags": [],
         "parameters": [
           {
@@ -6137,7 +5926,7 @@
                         },
                         "failCode": {
                           "type": "string",
-                          "description": "failure code:UNKNOWN_ERROR:Unknown error PRICE_CONFIG_ERROR: Price error PARAMETERS_ERROR: Device parameter error STRATEGY_CONFIG_ERROR: Policy error"
+                          "description": "failure code:\nUNKNOWN_ERROR:Unknown error \nPRICE_CONFIG_ERROR: Price error \nPARAMETERS_ERROR: Device parameter error \nSTRATEGY_CONFIG_ERROR: Policy error"
                         },
                         "plan": {
                           "type": "array",
@@ -6156,13 +5945,13 @@
                                 "type": "string",
                                 "description": "Control equipment type:\n【Load meter：LOAD】【Grid meter：GRID】【Solar：PV】【Energy storage battery：BATTERY】【Charging pile：CHARGER】【vehicle：VEHICLE】【HVAC：HVAC】【Gateway collector：GATEWAY】【Photovoltaic energy storage inverter：INVERTER】"
                               },
-                              "controlScope": {
-                                "type": "string",
-                                "description": "Control Scope Description【SINGLE 、GROUP  】"
-                              },
                               "controlMode": {
                                 "type": "string",
-                                "description": "Control mode:\nlocal-local mode;\nai-ai control mode ;\nWhen the policy status is PLAN:END:FAIL or PLAN:END:INVALID, the value is local and the device local mode is used"
+                                "description": "Control mode: \nlocal-local mode;\nai-ai control mode ;\nWhen the policy status is PLAN:END:FAIL or PLAN:END:INVALID, the value is local and the device local mode is used"
+                              },
+                              "controlScope": {
+                                "type": "string",
+                                "description": "Control Scope Description【SINGLE 、GROUP 】"
                               },
                               "strategyParams": {
                                 "type": "object",
@@ -6172,7 +5961,7 @@
                                     "description": "Policy validity time UTC eg: 2024-06-10T10:00:00Z"
                                   },
                                   "frequency": {
-                                    "type": "integer",
+                                    "type": "string",
                                     "description": "Time interval frequency minutes"
                                   },
                                   "data": {
@@ -6180,9 +5969,13 @@
                                     "items": {
                                       "type": "object",
                                       "properties": {
-                                        "time": {
+                                        "startTime": {
                                           "type": "string",
                                           "description": "start time UTC eg: 2024-06-10T10:00:00Z"
+                                        },
+                                        "endTime": {
+                                          "type": "string",
+                                          "description": "endtime UTC eg: 2024-06-10T10:00:00Z"
                                         },
                                         "active": {
                                           "type": "string",
@@ -6193,13 +5986,11 @@
                                           "properties": {
                                             "value": {
                                               "type": "number",
-                                              "description": "value",
-                                              "nullable": true
+                                              "description": "value"
                                             },
                                             "unit": {
                                               "type": "string",
-                                              "description": "unit",
-                                              "nullable": true
+                                              "description": "unit"
                                             }
                                           },
                                           "required": [
@@ -6226,8 +6017,7 @@
                                           "properties": {
                                             "value": {
                                               "type": "string",
-                                              "description": "Switch 0-off 1-On",
-                                              "nullable": true
+                                              "description": "Switch 0-off 1-On"
                                             }
                                           },
                                           "required": [
@@ -6240,13 +6030,11 @@
                                           "properties": {
                                             "modeType": {
                                               "type": "string",
-                                              "description": "HEAT、COOL、AUTO、OFF",
-                                              "nullable": true
+                                              "description": "HEAT、COOL、AUTO、OFF"
                                             },
                                             "value": {
-                                              "type": "integer",
-                                              "description": "value",
-                                              "nullable": true
+                                              "type": "string",
+                                              "description": "value"
                                             }
                                           },
                                           "required": [
@@ -6254,33 +6042,76 @@
                                             "value"
                                           ],
                                           "description": "Control hvac temperature"
+                                        },
+                                        "hvacParam": {
+                                          "type": "object",
+                                          "properties": {
+                                            "action": {
+                                              "type": "number",
+                                              "description": "sg Ready 1~4"
+                                            },
+                                            "zones": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "key": {
+                                                    "type": "string",
+                                                    "description": "Fixed values: zone1, warm1, dhw1, pool1"
+                                                  },
+                                                  "type": {
+                                                    "type": "string",
+                                                    "description": "Fixed values: zone, warm, dhw, pool"
+                                                  },
+                                                  "mode": {
+                                                    "type": "number",
+                                                    "description": "0 = OFF, 1 = HEAT, 2 = COOL, 3 = AUTO"
+                                                  },
+                                                  "setTemp": {
+                                                    "type": "string",
+                                                    "description": "hvac set temperature"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "key",
+                                                  "type",
+                                                  "mode",
+                                                  "setTemp"
+                                                ]
+                                              }
+                                            }
+                                          },
+                                          "description": "Control hvac strategy",
+                                          "required": [
+                                            "action",
+                                            "zones"
+                                          ]
                                         }
                                       },
                                       "required": [
-                                        "active",
-                                        "time",
+                                        "startTime",
                                         "power",
                                         "mode",
                                         "switchOpen",
-                                        "temperature"
+                                        "active",
+                                        "temperature",
+                                        "endTime",
+                                        "hvacParam"
                                       ]
                                     }
                                   }
                                 },
                                 "required": [
-                                  "frequency",
                                   "effectTime",
-                                  "data"
+                                  "data",
+                                  "frequency"
                                 ],
                                 "description": "strategy params"
                               }
                             },
                             "required": [
-                              "deviceSn",
-                              "deviceId",
                               "controlUnit",
                               "controlMode",
-                              "strategyParams",
                               "controlScope"
                             ]
                           },
@@ -6289,14 +6120,14 @@
                       },
                       "required": [
                         "stationId",
-                        "timeZone",
                         "planId",
                         "status",
                         "createTime",
                         "refreshTime",
-                        "failCode",
+                        "plan",
+                        "timeZone",
                         "failReason",
-                        "plan"
+                        "failCode"
                       ]
                     },
                     "message": {
@@ -6305,10 +6136,10 @@
                   },
                   "required": [
                     "code",
-                    "data",
-                    "message",
+                    "requestId",
                     "success",
-                    "requestId"
+                    "data",
+                    "message"
                   ]
                 },
                 "example": {
@@ -6330,7 +6161,8 @@
                           "effectTime": "2024-06-13T00:00:00Z",
                           "data": [
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "power": {
                                 "value": 1.4,
                                 "unit": "kW"
@@ -6338,14 +6170,16 @@
                               "active": "power"
                             },
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "switchOpen": {
                                 "value": "0"
                               },
                               "active": "switchOpen"
                             },
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "mode": {
                                 "value": "SU"
                               },
@@ -6355,6 +6189,62 @@
                           "frequency": "30"
                         },
                         "deviceSn": "ewrw222"
+                      },
+                      {
+                        "deviceId": 123124,
+                        "controlUnit": "HVAC",
+                        "controlScope": "SINGLE",
+                        "strategyParams": {
+                          "effectTime": "2024-06-13T00:00:00Z",
+                          "data": [
+                            {
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
+                              "hvacParam": {
+                                "action": 1,
+                                "zones": [
+                                  {
+                                    "key": "dhw1",
+                                    "type": "dhw",
+                                    "mode": 3,
+                                    "setTemp": 45
+                                  },
+                                  {
+                                    "key": "warm1",
+                                    "type": "warm",
+                                    "mode": 3,
+                                    "setTemp": 31
+                                  }
+                                ]
+                              },
+                              "active": "hvacMode"
+                            },
+                            {
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
+                              "hvacParam": {
+                                "action": 1,
+                                "zones": [
+                                  {
+                                    "key": "zone1",
+                                    "type": "zone",
+                                    "mode": 1,
+                                    "setTemp": 24
+                                  },
+                                  {
+                                    "key": "pool1",
+                                    "type": "poo1",
+                                    "mode": 1,
+                                    "setTemp": 45.5
+                                  }
+                                ]
+                              },
+                              "active": "hvacMode"
+                            }
+                          ],
+                          "frequency": "30"
+                        },
+                        "deviceSn": "hvac-sn"
                       }
                     ],
                     "timeZone": "2024-06-13T00:00:00Z"
@@ -6498,9 +6388,13 @@
                                     "items": {
                                       "type": "object",
                                       "properties": {
-                                        "time": {
+                                        "startTime": {
                                           "type": "string",
                                           "description": "start time UTC eg: 2024-06-10T10:00:00Z"
+                                        },
+                                        "endTime": {
+                                          "type": "string",
+                                          "description": "endtime UTC eg: 2024-06-10T10:00:00Z"
                                         },
                                         "active": {
                                           "type": "string",
@@ -6567,15 +6461,61 @@
                                             "value"
                                           ],
                                           "description": "Control hvac temperature"
+                                        },
+                                        "hvacParam": {
+                                          "type": "object",
+                                          "properties": {
+                                            "action": {
+                                              "type": "number",
+                                              "description": "sg Ready 1~4"
+                                            },
+                                            "zones": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "key": {
+                                                    "type": "string",
+                                                    "description": "Fixed values: zone1, warm1, dhw1, pool1"
+                                                  },
+                                                  "type": {
+                                                    "type": "string",
+                                                    "description": "Fixed values: zone, warm, dhw, pool"
+                                                  },
+                                                  "mode": {
+                                                    "type": "number",
+                                                    "description": "0 = OFF, 1 = HEAT, 2 = COOL, 3 = AUTO"
+                                                  },
+                                                  "setTemp": {
+                                                    "type": "string",
+                                                    "description": "hvac set temperature"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "key",
+                                                  "type",
+                                                  "mode",
+                                                  "setTemp"
+                                                ]
+                                              }
+                                            }
+                                          },
+                                          "description": "Control hvac strategy",
+                                          "required": [
+                                            "action",
+                                            "zones"
+                                          ]
                                         }
                                       },
                                       "required": [
-                                        "time",
+                                        "startTime",
                                         "power",
                                         "mode",
                                         "switchOpen",
                                         "active",
-                                        "temperature"
+                                        "temperature",
+                                        "endTime",
+                                        "hvacParam"
                                       ]
                                     }
                                   }
@@ -6640,7 +6580,8 @@
                           "effectTime": "2024-06-13T00:00:00Z",
                           "data": [
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "power": {
                                 "value": 1.4,
                                 "unit": "kW"
@@ -6648,14 +6589,16 @@
                               "active": "power"
                             },
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "switchOpen": {
                                 "value": "0"
                               },
                               "active": "switchOpen"
                             },
                             {
-                              "time": "2024-06-13T00:00:00Z",
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
                               "mode": {
                                 "value": "SU"
                               },
@@ -6665,6 +6608,62 @@
                           "frequency": "30"
                         },
                         "deviceSn": "ewrw222"
+                      },
+                      {
+                        "deviceId": 123124,
+                        "controlUnit": "HVAC",
+                        "controlScope": "SINGLE",
+                        "strategyParams": {
+                          "effectTime": "2024-06-13T00:00:00Z",
+                          "data": [
+                            {
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
+                              "hvacParam": {
+                                "action": 1,
+                                "zones": [
+                                  {
+                                    "key": "dhw1",
+                                    "type": "dhw",
+                                    "mode": 3,
+                                    "setTemp": 45
+                                  },
+                                  {
+                                    "key": "warm1",
+                                    "type": "warm",
+                                    "mode": 3,
+                                    "setTemp": 31
+                                  }
+                                ]
+                              },
+                              "active": "hvacMode"
+                            },
+                            {
+                              "startTime": "2024-06-13T00:00:00Z",
+                              "endTime": "2024-06-13T00:30:00Z",
+                              "hvacParam": {
+                                "action": 1,
+                                "zones": [
+                                  {
+                                    "key": "zone1",
+                                    "type": "zone",
+                                    "mode": 1,
+                                    "setTemp": 24
+                                  },
+                                  {
+                                    "key": "pool1",
+                                    "type": "poo1",
+                                    "mode": 1,
+                                    "setTemp": 45.5
+                                  }
+                                ]
+                              },
+                              "active": "hvacMode"
+                            }
+                          ],
+                          "frequency": "30"
+                        },
+                        "deviceSn": "hvac-sn"
                       }
                     ],
                     "timeZone": "2024-06-13T00:00:00Z"
