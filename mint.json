@@ -108,25 +108,27 @@
         "api-reference/apistation-management/create-station",
         "api-reference/apistation-management/get-station-price-detail",
         "api-reference/apistation-management/update-station-info",
-        "api-reference/apistation-management/station-bind-price",
-        "api-reference/apistation-management/station-unbind-price",
         "api-reference/apistation-management/delete-station"
       ]
     },
     {
       "group": "OpenAI/Device Management",
       "pages": [
+        "api-reference/apidevice-management/list-device",
+        "api-reference/apidevice-management/get-device-info",
         "api-reference/apidevice-management/create-device",
         "api-reference/apidevice-management/update-device",
+        "api-reference/apidevice-management/get-device-realtime-data",
+        "api-reference/apidevice-management/get-device-history-data",
         "api-reference/apidevice-management/upload-device-data",
-        "api-reference/apidevice-management/unbind-device",
-        "api-reference/apidevice-management/device-bind-station"
+        "api-reference/apidevice-management/device-bind-station",
+        "api-reference/apidevice-management/unbind-device"
       ]
     },
     {
       "group": "OpenAI/Device Command(Third-party)",
       "pages": [
-        "api-reference/apidevice-device-commands/execute-device-commands"
+        "api-reference/apidevice-command-thirdparty/execute-device-commands"
       ]
     },
     {
